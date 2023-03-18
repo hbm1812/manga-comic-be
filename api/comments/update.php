@@ -36,6 +36,7 @@ if (isset($_POST['id'])) {
             'id' => $_POST["id"] ?? -1,
             'user_id' => $_POST["user_id"] ?? null,
             'news_id' => $_POST["news_id"] ?? null,
+            'story_id' => $_POST["story_id"] ?? null,
             'parent_id' => $getParentId,
             'thumbnail' => $_POST["thumbnail"] ?? null,
             'content' => $_POST["content"] ?? null,
@@ -86,39 +87,11 @@ if (isset($_POST['id'])) {
         'id' => $_POST["id"] ?? -1,
         'user_id' => $_POST["user_id"] ?? null,
         'news_id' => $_POST["news_id"] ?? null,
+        'story_id' => $_POST["story_id"] ?? null,
         'parent_id' => $getParentId,
         'thumbnail' => $getFileName ?? null,
         'content' => $_POST["content"] ?? null,
     ];
 
     $update = Comments::update($param);
-}
-
-
-
-
-
-
-
-if (isset($_POST['id'])) {    
-    
-
-    $param = [
-        // 'username' => $data->username || $_POST["username"],
-        // 'email' => $data->email || $_POST["email"],
-        // 'role' => $data->role || $_POST["role"],
-        // 'password' => $data->password || $_POST["password"]
-        
-        'id' => $_POST["id"] ?? -1,
-        'name' => $_POST["name"] ?? "",
-        'email' => $_POST["email"] ?? "",
-        'username' => $_POST["username"] ?? "",
-        'password' => $_POST["password"] ?? "",
-        'phone' => $_POST["phone"] ?? "",
-        'role_id' => $_POST["role_id"] ?? "",
-        'avatar' => $getFileName ?? null
-    ];
-
-    $update = User::update($param);    
-
 }

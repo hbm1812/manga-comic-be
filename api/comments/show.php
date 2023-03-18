@@ -5,12 +5,19 @@
     require_once "../../model/comments.php";    
 
     $checkId = null;
+    $checkIdStory = null;
     if(isset($_GET["news_id"])) {
         $checkId = $_GET["news_id"] ?? "";
-    }    
+    } 
     
+    if(isset($_GET["story_id"])) {
+        $checkIdStory = $_GET["story_id"] ?? "";
+    }
+
+    // story_id
     $param = [
         'news_id' => $checkId,
+        'story_id' => $checkIdStory,
     ];
     $show = Comments::show($param);
 

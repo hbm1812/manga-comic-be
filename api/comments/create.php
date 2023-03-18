@@ -18,6 +18,7 @@ if (isset($_POST['user_id'])) {
         $param = [
             'user_id' => $_POST["user_id"] ?? null,
             'news_id' => $_POST["news_id"] ?? null,
+            'story_id' => $_POST["story_id"] ?? null,
             'parent_id' => $_POST["parent_id"] ?? null,
             'thumbnail' => $getFileName ?? null,
             // 'thumbnail' => $_POST["thumbnail"],
@@ -45,6 +46,7 @@ if (isset($_POST['user_id'])) {
     $param = [
         'user_id' => $_POST["user_id"] ?? null,
         'news_id' => $_POST["news_id"] ?? null,
+        'story_id' => $_POST["story_id"] ?? null,
         'parent_id' => $_POST["parent_id"] ?? null,
         'thumbnail' => $getFileName ?? null,
         // 'thumbnail' => $_POST["thumbnail"],

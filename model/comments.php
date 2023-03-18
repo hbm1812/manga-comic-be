@@ -10,7 +10,7 @@
         }   
         
         static public function show($data = []){
-            $sql = "SELECT comment.*, users.name, users.avatar AS `user_avatar` FROM comment, users WHERE users.id = comment.user_id AND comment.news_id = :news_id";
+            $sql = "SELECT comment.*, users.name, users.avatar AS `user_avatar` FROM comment, users WHERE users.id = comment.user_id AND comment.news_id = :news_id OR comment.`story_id`=:story_id";
 
             $result = DB::execute($sql, $data);
 
@@ -18,13 +18,13 @@
         }  
 
         static public function create($data = []){
-            $sql = "INSERT INTO comment SET `user_id`=:user_id, `news_id`=:news_id, `parent_id`=:parent_id, `thumbnail`=:thumbnail, `content`=:content";
+            $sql = "INSERT INTO comment SET `user_id`=:user_id, `news_id`=:news_id, `story_id`=:story_id, `parent_id`=:parent_id, `thumbnail`=:thumbnail, `content`=:content";
             $result = DB::execute($sql, $data);
             return $result;
         }
 
         static public function update($data = []){
-            $sql = "UPDATE comment SET `user_id`=:user_id, `news_id`=:news_id, `parent_id`=:parent_id, `thumbnail`=:thumbnail, `content`=:content WHERE `id`=:id";
+            $sql = "UPDATE comment SET `user_id`=:user_id, `news_id`=:news_id, `story_id`=:story_id, `parent_id`=:parent_id, `thumbnail`=:thumbnail, `content`=:content WHERE `id`=:id";
             $result = DB::execute($sql, $data);
             return $result;
         }

@@ -1,11 +1,28 @@
-
+-- comment
 DROP TABLE IF EXISTS `comment`;
+-- manga
+DROP TABLE IF EXISTS `satisfied_story`;
+DROP TABLE IF EXISTS `satisfied`;
+DROP TABLE IF EXISTS `favorite_story`;
+DROP TABLE IF EXISTS `favorite`;
+DROP TABLE IF EXISTS `view_user`;
+DROP TABLE IF EXISTS `story_genres`;
+DROP TABLE IF EXISTS `chapter_images`;
+DROP TABLE IF EXISTS `genres`;
+DROP TABLE IF EXISTS `chapter`;
+DROP TABLE IF EXISTS `character`;
+DROP TABLE IF EXISTS `view`;
+DROP TABLE IF EXISTS `stories`;
+DROP TABLE IF EXISTS `author`;
+DROP TABLE IF EXISTS `status`;
 
-DROP TABLE IF EXISTS `users`;
-DROP TABLE IF EXISTS `roles`;
-
+-- news
 DROP TABLE IF EXISTS `news`;
 DROP TABLE IF EXISTS `category_news`;
+
+-- user
+DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `roles`;
 
 
 -- vai trò
@@ -86,19 +103,6 @@ INSERT INTO `news` (`id`, `category_news_id`, `title`, `keyword`, `author`, `con
 (9, 4, 'Nhà Lữ Hành thân mến, sự kiện cầu nguyện \"Nắng Vàng Rực Rỡ\", \"Tà Dương Phán Quyết\", \"Thân Hình Thần Đúc\" sẽ mở vào 01/03!\r\n', NULL, NULL, 'Trong thời gian sự kiện, Nhà Lữ Hành có thể nhận thêm vũ khí và nhân vật trong sự kiện cầu nguyện để tăng khả năng chiến đấu của đội!\r\n\r\n〓Thời Gian Cầu Nguyện〓\r\n\r\nSau khi cập nhật phiên bản 3.5 - 2023/3/21 17:59\r\n\r\n〓Giới Thiệu Cầu Nguyện〓\r\n\r\n● Trong thời gian sự kiện, tỷ lệ cầu nguyện nhận nhân vật 5 sao Sư Tử Lửa - Dehya (Hỏa) sẽ tăng mạnh!\r\n\r\n● Trong thời gian sự kiện, tỷ lệ cầu nguyện nhận nhân vật 4 sao Thử Thách Của Vận Mệnh - Bennett (Hỏa), Thần Tượng Tỏa Sáng - Barbara (Thủy), Mầm Non Tái Sinh - Collei (Thảo) sẽ tăng mạnh!\r\n\r\n● Sau khi kết thúc sự kiện, nhân vật 5 sao Sư Tử Lửa - Dehya (Hỏa) sẽ vào cầu nguyện thường Du Hành Thế Gian trong phiên bản tiếp theo.\r\n\r\n※ Lần cầu nguyện này là sự kiện Cầu Nguyện Nhân Vật, số lần đảm bảo của sự kiện Cầu Nguyện Nhân Vật và Cầu Nguyện Nhân Vật-2 sẽ được tính chung, đồng thời được tích lũy trong sự kiện Cầu Nguyện Nhân Vật và Cầu Nguyện Nhân Vật-2, được tính độc lập với các sự kiện cầu nguyện khác và không ảnh hưởng lẫn nhau.\r\n\r\n※ Trong thời gian mở Cầu Nguyện, sẽ mở sự kiện dùng thử nhân vật \"Thử Thân Thủ\", Nhà Lữ Hành có thể sử dụng đội hình cố định có chứa nhân vật dùng thử để vượt ải chỉ định và thử nghiệm tính năng. Sau khi vượt qua thử thách sẽ nhận được phần thưởng tương ứng!\r\n\r\n※ Các thông tin khác về sự kiện Cầu Nguyện có thể nhấn nút \"Chi Tiết\" góc dưới bên trái giao diện cầu nguyện để xem.\r\nCầu Nguyện \"Tà Dương Phán Quyết\": UP Xác Suất \"Phán Quyết Ẩn Mật - Cyno (Lôi)\"!\r\n\r\nTrong thời gian sự kiện, Nhà Lữ Hành có thể nhận thêm vũ khí và nhân vật trong sự kiện cầu nguyện để tăng khả năng chiến đấu của đội!\r\n\r\n〓Thời Gian Cầu Nguyện〓\r\n\r\nSau khi cập nhật phiên bản 3.5 - 2023/3/21 17:59\r\n\r\n \r\n\r\n〓Giới Thiệu Cầu Nguyện〓\r\n\r\n● Trong thời gian sự kiện, tỷ lệ cầu nguyện nhận nhân vật 5 sao giới hạn Phán Quyết Ẩn Mật - Cyno (Lôi) sẽ tăng mạnh!\r\n\r\n● Trong thời gian sự kiện, tỷ lệ cầu nguyện nhận nhân vật 4 sao Thử Thách Của Vận Mệnh - Bennett (Hỏa), Thần Tượng Tỏa Sáng - Barbara (Thủy), Mầm Non Tái Sinh - Collei (Thảo) sẽ tăng mạnh!\r\n\r\n※ Trong các nhân vật ở trên, nhân vật giới hạn sẽ không vào Cầu Nguyện Thường \"Du Hành Thế Gian\".\r\n\r\n※ Lần cầu nguyện này là sự kiện Cầu Nguyện Nhân Vật-2, số lần đảm bảo của sự kiện Cầu Nguyện Nhân Vật và Cầu Nguyện Nhân Vật-2 sẽ được tính chung, đồng thời được tích lũy trong sự kiện Cầu Nguyện Nhân Vật và Cầu Nguyện Nhân Vật-2, được tính độc lập với các sự kiện cầu nguyện khác và không ảnh hưởng lẫn nhau.\r\n\r\n※ Trong thời gian mở Cầu Nguyện, sẽ mở sự kiện dùng thử nhân vật \"Thử Thân Thủ\", Nhà Lữ Hành có thể sử dụng đội hình cố định có chứa nhân vật dùng thử để vượt ải chỉ định và thử nghiệm tính năng. Sau khi vượt qua thử thách sẽ nhận được phần thưởng tương ứng!\r\n\r\n※ Các thông tin khác về sự kiện Cầu Nguyện có thể nhấn nút \"Chi Tiết\" góc dưới bên trái giao diện để xem.\r\n\r\nCầu Nguyện \"Thân Hình Thần Đúc\": UP Xác Suất \"Trọng Kiếm - Hải Đăng Bờ Biển Lau\", \"Vũ Khí Cán Dài - Quyền Trượng Cát Đỏ\"!\r\n\r\nTrong thời gian sự kiện, Nhà Lữ Hành có thể nhận nhiều vũ khí và nhân vật trong sự kiện cầu nguyện \"Thân Hình Thần Đúc\" để tăng khả năng chiến đấu của đội!\r\n\r\n〓Thời Gian Cầu Nguyện〓\r\n\r\nSau khi cập nhật phiên bản 3.5 - 2023/3/21 17:59\r\n\r\n \r\n\r\n〓Giới Thiệu Cầu Nguyện〓\r\n\r\n● Trong thời gian sự kiện, tỷ lệ cầu nguyện nhận vũ khí 5 sao giới hạn Trọng Kiếm - Hải Đăng Bờ Biển Lau, Vũ Khí Cán Dài - Quyền Trượng Cát Đỏ sẽ tăng mạnh!\r\n\r\n● Trong thời gian sự kiện, tỷ lệ cầu nguyện nhận vũ khí 4 sao giới hạn Kiếm Đơn - Tia Sáng Nơi Hẻm Tối, Cung - Thợ Săn Hẻm Tối, vũ khí 4 sao Trọng Kiếm - Đại Kiếm Tế Lễ, Vũ Khí Cán Dài - Tai Ương Của Rồng, Pháp Khí - Chiêu Tâm sẽ tăng mạnh!\r\n\r\n● Trong thời gian sự kiện, có thể sử dụng Định Chuẩn Thần Đúc để tiến hành định chuẩn đối với vũ khí UP 5 sao kỳ này là Trọng Kiếm - Hải Đăng Bờ Biển Lau hoặc Vũ Khí Cán Dài - Quyền Trượng Cát Đỏ, các thông tin khác về \"Định Chuẩn Thần Đúc\" có thể nhấn nút \"Chi Tiết\" góc dưới bên trái giao diện cầu nguyện để xem.\r\n\r\n※ Trong các vũ khí ở trên, vũ khí giới hạn sẽ không vào Cầu Nguyện Thường \"Du Hành Thế Gian\".\r\n\r\n \r\n\r\n※ Các thông tin khác về sự kiện Cầu Nguyện có thể nhấn nút \"Chi Tiết\" góc dưới bên trái giao diện để xem.', 'https://webstatic.hoyoverse.com/upload/op-public/2023/02/27/33141d7c2e5be7ec7d3678a69610c446_8072336947262077121.jpg', NULL, NULL, NULL, '2023-03-04 16:01:39', NULL),
 (10, NULL, 'Giới Thiệu Thẻ Bài Mới Trong Thất Thánh Triệu Hồi Phiên Bản 3.5\r\n', '', NULL, 'Nhà Lữ Hành thân mến, sau khi cập nhật phiên bản 3.5, cách chơi Thất Thánh Triệu Hồi sẽ có thêm Thẻ Nhân Vật \"Eula\", \"Sangonomiya Kokomi\", \"Kujou Sara\" và Thẻ Thiên Phú tương ứng cùng 2 Thẻ Trang Bị mới. Cùng đến xem nào!\r\n\r\nSau khi cập nhật phiên bản 3.5, đến Quán Rượu Đuôi Mèo để mời nhân vật quyết đấu, đạt mục tiêu khiêu chiến chỉ định sẽ nhận được Thẻ Nhân Vật và Thẻ Thiên Phú tương ứng. Thẻ Trang Bị mới có thể mua trong Cửa Hàng Thẻ Bài.\r\n\r\n*Nhóm phát triển sẽ tiếp tục theo dõi trải nghiệm game của các Nhà Lữ Hành và tiến hành điều chỉnh, ưu hóa tính cân bằng của thẻ bài. Thông tin thẻ bài vui lòng lấy nội dung chính thức trong game làm chuẩn.', 'https://webstatic.hoyoverse.com/upload/op-public/2023/02/23/278619f8b177c561b43deaf85af7e754_1777221815824703679.png', NULL, NULL, NULL, '2023-03-04 16:02:44', NULL);
 
-CREATE TABLE `comment`  (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `user_id` int(10) UNSIGNED,
-  `news_id` int(10) UNSIGNED,
-  `parent_id` int(10) UNSIGNED,
-  `thumbnail` varchar(255),
-  `content` varchar(255),
-  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  FOREIGN KEY (`news_id`) REFERENCES `news`(`id`),
-  FOREIGN KEY (`user_id`) REFERENCES `users`(`id`)
-);
-
 
 -- đang update
 -- manga (stories)
@@ -113,8 +117,13 @@ CREATE TABLE `author`  (
   `updated_at` TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 );
 
+INSERT INTO `author` (`id`, `keyword`, `name`, `alias`, `avatar`, `desc`, `created_at`, `updated_at`) VALUES 
+(NULL, NULL, 'not found name', 'Asato Asato', 'https://cdn.anime-planet.com/people/primary/asato-asato-1-190x267.jpg?t=1625790596', 'Asato Asato (安里アサト, born 1985) is a female Japanese novelist. The pen name Asato Asato is a combination of her real name (Toru Asakura) and eighty-eight.', current_timestamp(), NULL), 
+(NULL, NULL, 'Shinichi Fukuda', NULL, 'https://media.zenfs.com/es/levelup_525/42fac2aa5fdd822efc4e64f6e2964a9f', NULL, current_timestamp(), NULL), 
+(NULL, NULL, '', 'Code:000', 'https://upload.wikimedia.org/wikipedia/en/d/dc/DARLING_in_the_FRANXX%2C_second_key_visual.jpg?20200726083303', NULL, current_timestamp(), NULL);
+
 -- define 
--- complete / coming soon / continue
+-- 3 complete / 2 coming soon / 1 continue
 CREATE TABLE `status`  (
   `id` int(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,  
   `keyword` varchar(255),
@@ -123,16 +132,60 @@ CREATE TABLE `status`  (
   `updated_at` TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 );
 
--- desc 
--- 1 author có thể có nhiều truyện / 1 truyện có thể nhiều tác giả :V
-CREATE TABLE `story_author`  (
+INSERT INTO `status` (`id`, `keyword`, `name`, `created_at`, `updated_at`) VALUES 
+(NULL, '0', 'Đang tiến hành', current_timestamp(), NULL), 
+(NULL, '1', 'Sắp chiếu', current_timestamp(), NULL), 
+(NULL, '2', 'Hoàn thành', current_timestamp(), NULL);
+
+-- desc thumbnail: ảnh chính của manga lúc up lên YC ảnh dọc
+-- background : ảnh lúc giới thiệu ngang to YC ảnh ngang 
+-- satisfied = favorite / view
+-- 1 truyện sẽ có 1 trạng thái 
+CREATE TABLE `stories`  (
   `id` int(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,  
+  `keyword` varchar(255),
+  `name` varchar(255),
+  `name_romanji` varchar(255),
+  `name_english` varchar(255),
+  `name_japan` varchar(255),
+  `alias` varchar(255),
+  `thumbnail` varchar(255),
+  `background` varchar(255),
+  `desc` text,
+  `status_id` int(10) UNSIGNED,
   `author_id` int(10) UNSIGNED,
-  `story_id` int(10) UNSIGNED,
+  `view_count` int(10) UNSIGNED DEFAULT 0,
+  `favorite_count` int(10) UNSIGNED DEFAULT 0,
   `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  FOREIGN KEY (`author_id`) REFERENCES `author`(`id`),
-  FOREIGN KEY (`story_id`) REFERENCES `stories`(`id`)
+  FOREIGN KEY (`status_id`) REFERENCES `status`(`id`),
+  FOREIGN KEY (`author_id`) REFERENCES `author`(`id`)
+);
+
+INSERT INTO `stories` (`id`, `keyword`, `name`, `name_romanji`, `name_english`, `name_japan`, `alias`, `thumbnail`, `background`, `desc`, `status_id`, `author_id`, `created_at`, `updated_at`) VALUES 
+(NULL, '86', '86 - Eighty Six', '86-エイティシックス-', '86 - Eighty Six', NULL, NULL, 'https://st.nettruyenup.com/data/comics/144/86-eighty-six.jpg', 'https://www.slashfilm.com/img/gallery/86-eighty-six-is-one-of-the-best-war-anime-ever-made/intro-1638465386.jpg', 'The Republic of San Magnolia has been at war with the Empire of Giad for nine years. Though it initially suffered devastating losses to the Empire\'s autonomous mechanized Legions, the Republic has since developed its own autonomous units, called Juggernauts, which are directed remotely by a Handler. While on the surface, the public believes the war is being fought between machines, in reality, the Juggernauts are being piloted by humans, all of whom are \"86\"—the designation given to the Colorata minority of San Magnolia. The 86 originally had equal rights, but were persecuted and scapegoated by the dominant Alba race and the Alba-supremacist Republic government to the point where Colorata were both officially designated and popularly considered subhuman. The 86 were not permitted to have personal names and were immured in internment camps in the 86th District (their namesake), all the while being forced to fight in the Republic\'s war with the Empire to receive better treatment.', '1', '1', current_timestamp(), NULL),
+(NULL, 'my-dress-up-darling', 'Sono Bisque Doll wa Koi wo suru', 'Sono Bisque Doll wa Koi wo suru', 'MY DRESS-UP DARLING', 'その着せ替え人形ビスク・ドールは恋をする', NULL, 'https://upload.wikimedia.org/wikipedia/en/thumb/2/2f/Sono_Bisque_Doll_wa_Koi_wo_Suru%2C_Volume_1.jpg/220px-Sono_Bisque_Doll_wa_Koi_wo_Suru%2C_Volume_1.jpg', 'https://i0.wp.com/anitrendz.net/news/wp-content/uploads/2021/10/My-Dress-up-Darling-1-Cropped-scaled.jpg', 'Wakana Gojo is a high school student with a secret admiration for hina dolls and aspires to become a craftsman like his grandfather. Having been socially traumatized for his passion, he had closed himself off from everyone. One day at school, his classmate Marin Kitagawa runs into him using a sewing machine for making a doll\s costume. After admiring Wakana\s doll and praising his work, Marin asks if Wakana could help her create cosplays. Initially, Wakana is nervous about his ability to create cosplay costumes for Marin because of his experience being limited to Hina dolls. However, he agrees to do it.', '3', '2', current_timestamp(), NULL), 
+(NULL, 'darling-in-the-franxx', 'Darling in the Franxx', '', 'Darling in the Franxx', 'ダーリン・イン・ザ・フランキス', NULL, 'https://upload.wikimedia.org/wikipedia/en/d/dc/DARLING_in_the_FRANXX%2C_second_key_visual.jpg', 'https://images.alphacoders.com/901/thumb-1920-901811.png', 'Darling in the Franxx is set in a dystopian future where children are artificially created and indoctrinated solely to defend the remnants of civilization. The story follows a squad of ten pilots, particularly focusing on the partnership between Hiro, a former prodigy, and Zero Two, a hybrid human and elite pilot who aspires to become entirely human.', '2', '3', current_timestamp(), NULL);
+
+-- views
+CREATE TABLE `view`  (
+  `id` int(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,  
+  `user_id` int(10) UNSIGNED,
+  `stories_id` int(10) UNSIGNED,
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (`user_id`) REFERENCES `users`(`id`),
+  FOREIGN KEY (`stories_id`) REFERENCES `stories`(`id`)
+);
+
+CREATE TABLE `favorite`  (
+  `id` int(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,  
+  `user_id` int(10) UNSIGNED,
+  `stories_id` int(10) UNSIGNED,
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (`user_id`) REFERENCES `users`(`id`),
+  FOREIGN KEY (`stories_id`) REFERENCES `stories`(`id`)
 );
 
 -- thể loại truyện (danh mục)
@@ -144,10 +197,26 @@ CREATE TABLE `genres`  (
   `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 );
+INSERT INTO `genres` (`id`, `keyword`, `name`, `background`, `created_at`, `updated_at`) VALUES 
+(NULL, 'action', 'Action', 'http://localhost/manga-comic-be/assets/images/base/genres/action.jpg', current_timestamp(), NULL), 
+(NULL, 'adventure', 'Adventure', 'http://localhost/manga-comic-be/assets/images/base/genres/adventure.jpg', current_timestamp(), NULL), 
+(NULL, 'comedy', 'Comedy', 'http://localhost/manga-comic-be/assets/images/base/genres/comedy.jpg', current_timestamp(), NULL), 
+(NULL, 'romance', 'romance', 'http://localhost/manga-comic-be/assets/images/base/genres/romance.jpg', current_timestamp(), NULL), 
+(NULL, 'drama', 'Drama', 'http://localhost/manga-comic-be/assets/images/base/genres/drama.jpg', current_timestamp(), NULL), 
+(NULL, 'mecha', 'Mecha', 'http://localhost/manga-comic-be/assets/images/base/genres/mecha.jpg', current_timestamp(), NULL), 
+(NULL, 'slice-of-life', 'Slice of life', 'http://localhost/manga-comic-be/assets/images/base/genres/sliceoflife.jpg', current_timestamp(), NULL), 
+(NULL, 'supernatural', 'Super natural', 'http://localhost/manga-comic-be/assets/images/base/genres/supernatual.jpg', current_timestamp(), NULL), 
+(NULL, 'magic', 'Magic', 'http://localhost/manga-comic-be/assets/images/base/genres/magic.jpg', current_timestamp(), NULL), 
+(NULL, 'fantasy', 'Fantasy', 'http://localhost/manga-comic-be/assets/images/base/genres/fantasy.jpg', current_timestamp(), NULL), 
+(NULL, 'psychological', 'Psychological', 'http://localhost/manga-comic-be/assets/images/base/genres/psy.jpg', current_timestamp(), NULL), 
+(NULL, 'school', 'School', 'http://localhost/manga-comic-be/assets/images/base/genres/school.jpg', current_timestamp(), NULL), 
+(NULL, 'sport', 'Sport', 'http://localhost/manga-comic-be/assets/images/base/genres/sport.jpg', current_timestamp(), NULL), 
+(NULL, 'music', 'Music', 'http://localhost/manga-comic-be/assets/images/base/genres/music.jpg', current_timestamp(), NULL), 
+(NULL, 'shonen', 'Shonen', 'http://localhost/manga-comic-be/assets/images/base/genres/shonen.jpg', current_timestamp(), NULL), 
+(NULL, 'yuri', 'Yuri', 'http://localhost/manga-comic-be/assets/images/base/genres/yuri.jpg', current_timestamp(), NULL), 
+(NULL, 'josei', 'Josei', 'http://localhost/manga-comic-be/assets/images/base/genres/josei.jpg', current_timestamp(), NULL), 
+(NULL, 'harem', 'Harem', 'http://localhost/manga-comic-be/assets/images/base/genres/harem.jpg', current_timestamp(), NULL);
 
--- desc 
--- 1 truyện có nhiều thể loại 
--- 1 thể loại cũng có nhiều truyện
 CREATE TABLE `story_genres`  (
   `id` int(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,  
   `genres_id` int(10) UNSIGNED,
@@ -157,18 +226,40 @@ CREATE TABLE `story_genres`  (
   FOREIGN KEY (`genres_id`) REFERENCES `genres`(`id`),
   FOREIGN KEY (`story_id`) REFERENCES `stories`(`id`)
 );
+INSERT INTO `story_genres` (`id`, `genres_id`, `story_id`, `created_at`, `updated_at`) VALUES 
+(NULL, '1', '1', current_timestamp(), NULL), 
+(NULL, '5', '1', current_timestamp(), NULL), 
+(NULL, '6', '1', current_timestamp(), NULL), 
+(NULL, '3', '2', current_timestamp(), NULL), 
+(NULL, '5', '2', current_timestamp(), NULL), 
+(NULL, '4', '2', current_timestamp(), NULL), 
+(NULL, '7', '2', current_timestamp(), NULL), 
+(NULL, '5', '3', current_timestamp(), NULL), 
+(NULL, '6', '3', current_timestamp(), NULL), 
+(NULL, '11', '3', current_timestamp(), NULL);
 
 -- chapter
 -- desc qh 1 nhiều 1 truyện có nhiều chapter
 CREATE TABLE `chapter`  (
   `id` int(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,  
+  `keyword` varchar(255),
   `name` varchar(255),
   `subname` varchar(255),
   `story_id` int(10) UNSIGNED,
+  `country` varchar(255),
+  `languages` varchar(255),
   `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   FOREIGN KEY (`story_id`) REFERENCES `stories`(`id`)
 );
+-- My Dress-Up Darling, Chapter 1
+-- keyword của chapter phải trùng với keyword trên stories
+INSERT INTO `chapter` (`id`, `keyword`, `name`, `subname`, `story_id`, `country`, `languages`, `created_at`, `updated_at`) VALUES 
+(NULL, '86', 'Eighty Six, Chapter 1', NULL, '1', 'JP', 'EN', current_timestamp(), NULL), 
+(NULL, '86', 'Eighty Six, Chapter 2', NULL, '1', 'JP', 'EN', current_timestamp(), NULL),
+(NULL, 'my-dress-up-darling', 'My Dress-Up Darling, Chapter 1', NULL, '2', 'JP', 'EN', current_timestamp(), NULL),
+(NULL, 'darling-in-the-franxx', 'Darling in the franxx, Chapter 1', NULL, '3', 'JP', 'Vi', current_timestamp(), NULL);
+
 
 -- 1 chapter có nhiều ảnh
 CREATE TABLE `chapter_images`  (
@@ -179,6 +270,47 @@ CREATE TABLE `chapter_images`  (
   `updated_at` TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   FOREIGN KEY (`chapter_id`) REFERENCES `chapter`(`id`)
 );
+INSERT INTO `chapter_images` (`id`, `thumbnail`, `chapter_id`, `created_at`, `updated_at`) VALUES 
+(NULL, 'https://cdn.hxmanga.com/file/majekayoo/86/Chapter%201/001.jpg', '1', current_timestamp(), NULL), 
+(NULL, 'https://cdn.hxmanga.com/file/majekayoo/86/Chapter%201/002.jpg', '1', current_timestamp(), NULL), 
+(NULL, 'https://cdn.hxmanga.com/file/majekayoo/86/Chapter%201/003.jpg', '1', current_timestamp(), NULL), 
+(NULL, 'https://cdn.hxmanga.com/file/majekayoo/86/Chapter%201/004.jpg', '1', current_timestamp(), NULL), 
+(NULL, 'https://cdn.hxmanga.com/file/majekayoo/86/Chapter%201/005.jpg', '1', current_timestamp(), NULL), 
+(NULL, 'https://cdn.hxmanga.com/file/majekayoo/86/Chapter%201/006.jpg', '1', current_timestamp(), NULL), 
+(NULL, 'https://cdn.hxmanga.com/file/majekayoo/86/Chapter%201/007.jpg', '1', current_timestamp(), NULL), 
+(NULL, 'https://cdn.hxmanga.com/file/majekayoo/86/Chapter%201/008.jpg', '1', current_timestamp(), NULL), 
+(NULL, 'https://cdn.hxmanga.com/file/majekayoo/86/Chapter%201/009.jpg', '1', current_timestamp(), NULL), 
+(NULL, 'https://cdn.hxmanga.com/file/majekayoo/86/Chapter%201/010.jpg', '1', current_timestamp(), NULL), 
+(NULL, 'https://cdn.hxmanga.com/file/majekayoo/86/Chapter%202/001.jpg', '2', current_timestamp(), NULL), 
+(NULL, 'https://cdn.hxmanga.com/file/majekayoo/86/Chapter%202/002.jpg', '2', current_timestamp(), NULL), 
+(NULL, 'https://cdn.hxmanga.com/file/majekayoo/86/Chapter%202/003.jpg', '2', current_timestamp(), NULL), 
+(NULL, 'https://cdn.hxmanga.com/file/majekayoo/86/Chapter%202/004.jpg', '2', current_timestamp(), NULL), 
+(NULL, 'https://cdn.hxmanga.com/file/majekayoo/86/Chapter%202/005.jpg', '2', current_timestamp(), NULL), 
+(NULL, 'https://cdn.hxmanga.com/file/majekayoo/86/Chapter%202/006.jpg', '2', current_timestamp(), NULL), 
+(NULL, 'https://cdn.hxmanga.com/file/majekayoo/86/Chapter%202/007.jpg', '2', current_timestamp(), NULL), 
+(NULL, 'https://cdn.hxmanga.com/file/majekayoo/86/Chapter%202/008.jpg', '2', current_timestamp(), NULL), 
+(NULL, 'https://cdn.hxmanga.com/file/majekayoo/86/Chapter%202/009.jpg', '2', current_timestamp(), NULL), 
+(NULL, 'https://cdn.hxmanga.com/file/majekayoo/86/Chapter%202/010.jpg', '2', current_timestamp(), NULL),
+(NULL, 'https://cdn.hxmanga.com/file/majekayoo/sono-bisque-doll-wa-koi-wo-suru/Chapter-1/1.jpg', '3', current_timestamp(), NULL), 
+(NULL, 'https://cdn.hxmanga.com/file/majekayoo/sono-bisque-doll-wa-koi-wo-suru/Chapter-1/2.jpg', '3', current_timestamp(), NULL), 
+(NULL, 'https://cdn.hxmanga.com/file/majekayoo/sono-bisque-doll-wa-koi-wo-suru/Chapter-1/3.jpg', '3', current_timestamp(), NULL), 
+(NULL, 'https://cdn.hxmanga.com/file/majekayoo/sono-bisque-doll-wa-koi-wo-suru/Chapter-1/4.jpg', '3', current_timestamp(), NULL), 
+(NULL, 'https://cdn.hxmanga.com/file/majekayoo/sono-bisque-doll-wa-koi-wo-suru/Chapter-1/5.jpg', '3', current_timestamp(), NULL), 
+(NULL, 'https://cdn.hxmanga.com/file/majekayoo/sono-bisque-doll-wa-koi-wo-suru/Chapter-1/6.jpg', '3', current_timestamp(), NULL), 
+(NULL, 'https://cdn.hxmanga.com/file/majekayoo/sono-bisque-doll-wa-koi-wo-suru/Chapter-1/7.jpg', '3', current_timestamp(), NULL), 
+(NULL, 'https://cdn.hxmanga.com/file/majekayoo/sono-bisque-doll-wa-koi-wo-suru/Chapter-1/8.jpg', '3', current_timestamp(), NULL), 
+(NULL, 'https://cdn.hxmanga.com/file/majekayoo/sono-bisque-doll-wa-koi-wo-suru/Chapter-1/9.jpg', '3', current_timestamp(), NULL), 
+(NULL, 'https://cdn.hxmanga.com/file/majekayoo/sono-bisque-doll-wa-koi-wo-suru/Chapter-1/10.jpg', '3', current_timestamp(), NULL),
+(NULL, 'https://i3.truyen-hay.com/289/289218/000.jpg', '4', current_timestamp(), NULL), 
+(NULL, 'https://i3.truyen-hay.com/289/289218/000a.jpg', '4', current_timestamp(), NULL), 
+(NULL, 'https://i3.truyen-hay.com/289/289218/001.jpg', '4', current_timestamp(), NULL), 
+(NULL, 'https://i3.truyen-hay.com/289/289218/002.jpg', '4', current_timestamp(), NULL), 
+(NULL, 'https://i3.truyen-hay.com/289/289218/003-004.jpg', '4', current_timestamp(), NULL), 
+(NULL, 'https://i3.truyen-hay.com/289/289218/005.jpg', '4', current_timestamp(), NULL), 
+(NULL, 'https://i3.truyen-hay.com/289/289218/006.jpg', '4', current_timestamp(), NULL), 
+(NULL, 'https://i3.truyen-hay.com/289/289218/007.jpg', '4', current_timestamp(), NULL), 
+(NULL, 'https://i3.truyen-hay.com/289/289218/008.jpg', '4', current_timestamp(), NULL), 
+(NULL, 'https://i3.truyen-hay.com/289/289218/009.jpg', '4', current_timestamp(), NULL);
 
 -- giới thiệu nv 
 -- 1 truyện sẽ có nhiều char
@@ -196,25 +328,19 @@ CREATE TABLE `character`  (
   FOREIGN KEY (`story_id`) REFERENCES `stories`(`id`)
 );
 
--- desc thumbnail: ảnh chính của manga lúc up lên YC ảnh dọc
--- background : ảnh lúc giới thiệu ngang to YC ảnh ngang 
--- 1 truyện sẽ có 1 trạng thái 
-CREATE TABLE `stories`  (
-  `id` int(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,  
-  `keyword` varchar(255),
-  `name` varchar(255),
-  `name_romanji` varchar(255),
-  `name_english` varchar(255),
-  `name_japan` varchar(255),
-  `alias` varchar(255),
+-- comment
+CREATE TABLE `comment`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `user_id` int(10) UNSIGNED,
+  `news_id` int(10) UNSIGNED,
+  `story_id` int(10) UNSIGNED,
+  `parent_id` int(10) UNSIGNED,
   `thumbnail` varchar(255),
-  `background` varchar(255),
-  `desc` text,
-  `status_id` int(10) UNSIGNED,
-  `view` int(10),
-  `satisfied` int(10),
-  `favorite` int(10),
+  `content` varchar(255),
   `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  FOREIGN KEY (`status_id`) REFERENCES `status`(`id`)
+  FOREIGN KEY (`news_id`) REFERENCES `news`(`id`),
+  FOREIGN KEY (`user_id`) REFERENCES `users`(`id`),
+  FOREIGN KEY (`story_id`) REFERENCES `stories`(`id`)
 );
+
