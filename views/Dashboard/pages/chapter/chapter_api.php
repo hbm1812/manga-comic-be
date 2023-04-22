@@ -8,6 +8,7 @@
     $METHOD_UPDATE=3;
     $METHOD_ADD= 4;
     $METHOD_DELETE= 5;
+    $METHOD_GET_ALL_ID_STORY= 6;
  
     include_once '../../../../api/functions.php';
  
@@ -21,29 +22,28 @@
 
 
     if($method == $METHOD_GET_ALL) {
-        $sql = "SELECT * FROM stories ";
+        $sql = "SELECT * FROM chapter ";
         $result = $db->selectall($sql);
+    }
+    if($method == $METHOD_GET_ALL_ID_STORY) {
+        $id=$_GET['id'];
+        $result = $db->selectallstoryid('chapter',$id);
     }
 
     if($method == $METHOD_GET_ONE) {
         $id=$_GET['id'];
-        $result = $db->selectone('stories',$id);
+        $result = $db->selectone('chapter',$id);
     }
 
     if($method == $METHOD_UPDATE){
         $data = array();
         $data['keyword'] = $_POST['keyword'];
         $data['name'] = $_POST['name'];
-        $data['name_romanji'] = $_POST['name_romanji'];
-        // $data['name_english'] = $_POST['name_english'];
-        $data['name_japan'] = $_POST['name_japan'];
-        $data['thumbnail'] = $_POST['thumbnail'];
-        $data['background'] = $_POST['background'];
-        $data['descr'] = $_POST['descr'];
-        $data['status_id'] = $_POST['status_id'];
-        $data['author_id'] = $_POST['author_id'];
+        $data['story_id'] = $_POST['story_id'];
+        $data['languages'] = $_POST['languages'];
+        $data['country'] = $_POST['country'];
         $where='id='.$_POST['id'];
-        $rs = $db->update('stories', $data,$where);
+        $rs = $db->update('chapter', $data,$where);
         if($rs){
             $result['update'] = true;
         }else{
@@ -55,17 +55,12 @@
         $data = array();
         $data['keyword'] = $_POST['keyword'];
         $data['name'] = $_POST['name'];
-        $data['name_romanji'] = $_POST['name_romanji'];
-        // $data['name_english'] = $_POST['name_english'];
-        $data['name_japan'] = $_POST['name_japan'];
-        $data['thumbnail'] = $_POST['thumbnail'];
-        $data['background'] = $_POST['background'];
-        $data['descr'] = $_POST['descr'];
-        $data['status_id'] = $_POST['status_id'];
-        $data['author_id'] = $_POST['author_id'];
+        $data['story_id'] = $_POST['story_id'];
+        $data['languages'] = $_POST['languages'];
+        $data['country'] = $_POST['country'];
      
  
-        $rs = $db->insert('stories', $data);
+        $rs = $db->insert('chapter', $data);
         if($rs){
             $result['add'] = true;
         }else{
@@ -76,7 +71,7 @@
     
     if($method == $METHOD_DELETE){
         $where='id='.$_POST['id'];
-        $rs = $db->delete('stories',$where);
+        $rs = $db->delete('chapter',$where);
         if($rs){
             $result['delete'] = true;
         }else{

@@ -1,3 +1,8 @@
+<?php
+$story_id_get = $_GET['id'];
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,15 +15,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
+            const story_id_get = "<?php echo $story_id_get ?>";
             window.scrollTo(0, 0);
             $.ajax({
-                url: "http://localhost/manga-comic-be/views/Dashboard/pages/news/news_api.php?method=1",
+                url: "http://localhost/manga-comic-be/views/Dashboard/pages/chapter/chapter_api.php?method=6&id=" + story_id_get,
                 dataType: 'json',
                 success: function(data) {
                     console.log(data);
                     $("#table_content").html("");
                     for (i = 0; i < data.length; i++) {
-                        var news = data[i]; //vd  {idTinh:'6', loai:'Tỉnh', tenTinh:'Bắc Kạn'}
+                        var dataAPI = data[i];
                         var str = ` 
                             
 
@@ -26,32 +32,38 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">tiêu đề</th>
-                    <th scope="col">Ảnh</th>
-                    <th scope="col">Ngày đăng</th>
-                    <th scope="col">Ngày sửa gần đây</th>
-                    <th scope="col">Tác giả</th>
-                    <th scope="col">Lượt xem</th>
-                    <th scope="col">Ngôn ngữ</th>
-                    <th scope="col">Chức năng</th>
+                    <th scope="col">KEYWORD</th>
+                    <th scope="col">NAME</th>
+                    <th scope="col">STORY_ID</th>
+                    <th scope="col">COUNTRY</th>
+                    <th scope="col">LANGUAGES</th>
+                    <th scope="col">CREATED_AT</th>
+                    <th scope="col">UPDATED_AT</th>
+                    <th scope="col">FUNCTIONS</th>
                 </tr>
             </thead>
             <tbody>
                 
                     <tr>
-                        <td scope="row">${news['id']}</td>
-                        <td style="width:200px ;">${news['title']}</td>
-                        <td style="width:200px"><img style="width:200px; height:100px; border-radius:0 !important;" src="${news['thumbnail']}" alt="" srcset=""></td>
-                        <td>${news['created_at']}</td>
-                        <td>${news['updated_at']}</td>
-                        <td>${news['author']}</td>
-                        <td>${news['views']}</td>
-                        <td>${news['languages']}</td>
+                        <td scope="row">${dataAPI['id']}</td>
+                        <td style="width:200px ;">${dataAPI['keyword']}</td>
+                        <td style="width:200px ;">${dataAPI['name']}</td>
+                        <td style="width:200px ;">${dataAPI['story_id']}</td>
+                        <td style="width:200px ;">${dataAPI['country']}</td>
+                        <td style="width:200px ;">${dataAPI['languages']}</td>
+                        <td>${dataAPI['created_at']}</td>
+                        <td>${dataAPI['updated_at']}</td>
+
                         <td>
                            
                             <!-- <a href="./edit.php?id" class="btn btn-warning">Sửa</a> -->
-                            <button class="btn btn-warning" id="myBtn" onclick="update(${news['id']})">Sửa</button>
-                            <button class="btn btn-danger btn-delete" id="BtnDelete" onclick="dele(${news['id']})">Xóa</button>
+                            <button class="btn btn-warning" id="myBtn" onclick="update(${dataAPI['id']})">Sửa</button>
+                            <br>
+                            <br>
+                            <button class="btn btn-info" id="chapter_imageBtn" onclick="chapter_images(${dataAPI['id']})">Chapter Image</button>
+                            <br>
+                            <br>
+                            <button class="btn btn-danger btn-delete" id="BtnDelete" onclick="dele(${dataAPI['id']})">Xóa</button>
                            
 
                         </td>
@@ -66,52 +78,12 @@
                 }
             });
         })
-
-        //the loai tin tuc cho modal update
-        $(document).ready(function() {
-            $.ajax({
-                url: "http://localhost/manga-comic-be/views/Dashboard/pages/category_news/category_news_api.php?method=1",
-                dataType: 'json',
-                success: function(data) {
-                    console.log(data);
-                    $("#category_news_id").html("");
-                    for (i = 0; i < data.length; i++) {
-                        var the_loai_tin_tuc = data[i];
-                        var str = `                                                                               
-                                <option value="${the_loai_tin_tuc['id']}">${the_loai_tin_tuc['name']}</option>
-                               
-                            `;
-                        $("#category_news_id").append(str);
-                    }
-                }
-            });
-        })
-
-
-        //the loai tin tuc cho modal create
-        $(document).ready(function() {
-            $.ajax({
-                url: "http://localhost/manga-comic-be/views/Dashboard/pages/category_news/category_news_api.php?method=1",
-                dataType: 'json',
-                success: function(data) {
-                    console.log(data);
-                    $("#Addcategory_news_id").html("");
-                    for (i = 0; i < data.length; i++) {
-                        var the_loai_tin_tuc = data[i];
-                        var str = `                                                                                
-                                <option value="${the_loai_tin_tuc['id']}">${the_loai_tin_tuc['name']}</option>                                  
-                            `;
-                        $("#Addcategory_news_id").append(str);
-                    }
-                }
-            });
-        })
     </script>
 </head>
 
 <body>
-    <h3>Danh sách tin tức</h3>
-    <button type="button" class="btn btn-secondary" id="BtnAdd">Thêm tin mới</button>
+    <h3>DANH SÁCH CHAPTER CỦA TRUYỆN:</h3>
+    <button type="button" class="btn btn-secondary" id="BtnAdd">Thêm mới</button>
     <div class="content" id="table_content">
 
 
@@ -125,50 +97,25 @@
         <div class="modal-content">
             <form action="#">
                 <span class="close">&times;</span>
-                <h2>Chỉnh sửa tin tức</h2>
+                <h2>CHỈNH SỬA THÔNG TIN TRUYỆN</h2>
 
                 <div class="modal_content">
                     <!--content ben trai-->
                     <div class="content_left">
                         <div class="component_container">
-                            <span>id</span>
-                            <input type="text" name="id" id="id" disabled>
+                            <span>ID</span>
+                            <input type="text" id="id" disabled>
                         </div>
                         <div class="component_container">
-                            <span>Thể loại tin tức:</span>
-                            <!-- <input type="text" name="Addcategory_news_id" id="Addcategory_news_id"> -->
-                            <select name="category_news_id" id="category_news_id">
-                                <!-- <option value="2">Anime</option>
-                                <option value="3">Truyện tranh</option>
-                                <option value="4">Thông tin</option> -->
-                            </select>
+                            <span>KEYWORD</span>
+                            <input type="text" id="keyword">
                         </div>
                         <div class="component_container">
-                            <span>Title</span>
-                            <textarea name="title" id="title"></textarea>
+                            <span>NAME</span>
+                            <textarea name="name" id="name"></textarea>
                         </div>
 
-                        <div class="component_container">
-                            <span>Thumbnail</span>
-                            <textarea name="thumbnail" id="thumbnail"></textarea>
-                        </div>
-                        <div class="component_container">
-                            <span>Languages</span>
-                            <select name="languages" id="languages">
-                                <option value="English">English</option>
-                                <option value="Vi">Vi</option>
-                            </select>
 
-                            <span style="margin-left: 180px;">Country</span>
-                            <select name="country" id="country">
-                                <option value="Japan">Japan</option>
-                                <option value="China">China</option>
-                            </select>
-                        </div>
-                        <div class="component_container">
-                            <span>Tác giả</span>
-                            <input type="text" name="author" id="author" disabled>
-                        </div>
 
                     </div>
 
@@ -176,9 +123,27 @@
                     <!--content ben phai-->
                     <div class="content_right">
                         <div class="component_container">
-                            <span>Content</span>
-                            <textarea name="content" id="content"></textarea>
+                            <span>STORY_ID</span>
+                            <input type="text" id="story_id" disabled value="<?php echo $story_id_get ?>">
                         </div>
+
+                        <div class="component_container">
+                            <span>Languages</span>
+                            <select name="languages" id="languages">
+                                <option value="EN">EN</option>
+                                <option value="Vi">Vi</option>
+                            </select>
+
+                            <span style="margin-left: 180px;">Country</span>
+                            <select name="country" id="country">
+                                <option value="JP">JP</option>
+                                <option value="China">China</option>
+                            </select>
+                        </div>
+
+                        <br>
+                        <br>
+                        <br>
 
                         <button type="button" class="btn btn-secondary" id="BtnExit">Thoát</button>
                         <button type="button" class="btn btn-success" id="BtnUpdate">Cập nhật</button>
@@ -206,46 +171,22 @@
         <div class="modal-content">
             <form action="#">
                 <span class="Addclose">&times;</span>
-                <h2>Thêm mới tin tức</h2>
+                <h2>THÊM MỚI CHAPTER</h2>
 
                 <div class="modal_content">
                     <!--content ben trai-->
                     <div class="content_left">
                         <div class="component_container">
-                            <span>Thể loại tin tức:</span>
-
-                            <select name="Addcategory_news_id" id="Addcategory_news_id">
-
-                                <!-- <option value="2">Anime</option>
-                                <option value="3">Truyện tranh</option>
-                                <option value="4">Thông tin</option> -->
-                            </select>
+                            <span>KEYWORD</span>
+                            <input type="text" id="Addkeyword">
                         </div>
                         <div class="component_container">
-                            <span>Title</span>
-                            <textarea name="Addtitle" id="Addtitle"></textarea>
-                        </div>
-
-                        <div class="component_container">
-                            <span>Thumbnail:</span>
-                            <textarea name="Addthumbnail" id="Addthumbnail"></textarea>
+                            <span>NAME</span>
+                            <textarea name="Addname" id="Addname"></textarea>
                         </div>
                         <div class="component_container">
-                            <span>Languages</span>
-                            <select name="Addlanguages" id="Addlanguages">
-                                <option value="English">English</option>
-                                <option value="Vi">Vi</option>
-                            </select>
-
-                            <span style="margin-left: 180px;">Country</span>
-                            <select name="Addcountry" id="Addcountry">
-                                <option value="Japan">Japan</option>
-                                <option value="China">China</option>
-                            </select>
-                        </div>
-                        <div class="component_container">
-                            <span>Tác giả</span>
-                            <input type="text" name="Addauthor" id="Addauthor">
+                            <span>STORY_ID</span>
+                            <input type="text" id="Addstory_id" disabled value="<?php echo $story_id_get ?>">
                         </div>
 
                     </div>
@@ -254,9 +195,22 @@
                     <!--content ben phai-->
                     <div class="content_right">
                         <div class="component_container">
-                            <span>Content</span>
-                            <textarea name="Addcontent" id="Addcontent"></textarea>
+                            <span>Languages</span>
+                            <select name="languages" id="Addlanguages">
+                                <option value="EN">EN</option>
+                                <option value="Vi">Vi</option>
+                            </select>
+
+                            <span style="margin-left: 180px;">Country</span>
+                            <select name="country" id="Addcountry">
+                                <option value="JP">JP</option>
+                                <option value="China">China</option>
+                            </select>
                         </div>
+
+                        <br>
+                        <br>
+                        <br>
 
                         <button type="button" class="btn btn-secondary" id="BtnAddExit">Thoát</button>
                         <button type="button" class="btn btn-success" id="BtnAddNew">Thêm mới</button>
@@ -305,12 +259,9 @@
 
         // Khi button được click thi mở Modal
         function update(id) {
-            // modal.style.display = "block";
-
-            // alert("\nid: " + id);
             //lấy dữ liệu từ api về
             $.ajax({
-                    url: "http://localhost/manga-comic-be/views/Dashboard/pages/news/news_api.php?method=2&id=" + id,
+                    url: "http://localhost/manga-comic-be/views/Dashboard/pages/chapter/chapter_api.php?method=2&id=" + id,
                     method: "GET",
                     dataType: "json"
 
@@ -320,13 +271,12 @@
                     console.log(response);
                     response.forEach(item => {
                         document.getElementById("id").value = response[0].id;
-                        document.getElementById("category_news_id").value = response[0].category_news_id;
-                        document.getElementById("title").value = response[0].title;
-                        document.getElementById("thumbnail").value = response[0].thumbnail;
-                        document.getElementById("languages").value = response[0].languages;
+                        document.getElementById("keyword").value = response[0].keyword;
+                        document.getElementById("name").value = response[0].name;
+                        document.getElementById("story_id").value = response[0].story_id;
                         document.getElementById("country").value = response[0].country;
-                        document.getElementById("author").value = response[0].author;
-                        document.getElementById("content").value = response[0].content;
+                        document.getElementById("languages").value = response[0].languages;
+        
                     });
 
 
@@ -337,25 +287,24 @@
 
         //khi bam nut cap nhat
         BtnUpdate.onclick = function() {
-
+            const story_id_get = "<?php echo $story_id_get ?>";
             //gửi đi "id" của dữ liệu mà mình cần lấy
 
             var data = {}
             data["id"] = $("#id").val();
-            data["category_news_id"] = $("#category_news_id").val();
-            data["title"] = $("#title").val();
-            data["content"] = $("#content").val();
+            data["keyword"] = $("#keyword").val();
+            data["name"] = $("#name").val();
+            data["story_id"] = $("#story_id").val();
             data["languages"] = $("#languages").val();
             data["country"] = $("#country").val();
 
 
             $.post(
-                "http://localhost/manga-comic-be/views/Dashboard/pages/news/news_api.php?method=3", {
+                "http://localhost/manga-comic-be/views/Dashboard/pages/chapter/chapter_api.php?method=3", {
                     id: document.getElementById("id").value,
-                    category_news_id: document.getElementById("category_news_id").value,
-                    title: document.getElementById("title").value,
-                    thumbnail: document.getElementById("thumbnail").value,
-                    content: document.getElementById("content").value,
+                    keyword: document.getElementById("keyword").value,
+                    name: document.getElementById("name").value,
+                    story_id: document.getElementById("story_id").value,
                     languages: document.getElementById("languages").value,
                     country: document.getElementById("country").value,
                 },
@@ -364,12 +313,12 @@
                     alert("Sửa thành công!");
 
                     $.ajax({
-                        url: "http://localhost/manga-comic-be/views/Dashboard/pages/news/news_api.php?method=1",
+                        url: "http://localhost/manga-comic-be/views/Dashboard/pages/chapter/chapter_api.php?method=1",
                         method: "GET",
                         dataType: "json",
                         success(response) {
                             console.log(response);
-                            $('#stage').load('./pages/news/news_curd.php');
+                            $('#stage').load('./pages/chapter/chapter_curd.php?id=' + story_id_get);
 
                         }
 
@@ -381,7 +330,7 @@
 
 
 
-        // Them moi news
+        // Them moi
         BtnAdd.onclick = function() {
 
             modal_add_news.style.display = "block";
@@ -407,26 +356,22 @@
         //khi bam nut them moi
         BtnAddNew.onclick = function() {
 
-
             //gửi đi "id" của dữ liệu mà mình cần lấy
 
             var data = {}
-            data["category_news_id"] = $("#Addcategory_news_id").val();
-            data["title"] = $("#Addtitle").val();
-            data["author"] = $("#Addauthor").val();
-            data["content"] = $("#Addcontent").val();
-            data["thumbnail"] = $("#Addthumbnail").val();
+
+            data["keyword"] = $("#Addkeyword").val();
+            data["name"] = $("#Addname").val();
+            data["story_id"] = $("#Addstory_id").val();
             data["languages"] = $("#Addlanguages").val();
             data["country"] = $("#Addcountry").val();
-
+            const story_id_get = "<?php echo $story_id_get ?>";
 
             $.post(
-                "http://localhost/manga-comic-be/views/Dashboard/pages/news/news_api.php?method=4", {
-                    category_news_id: document.getElementById("Addcategory_news_id").value,
-                    title: document.getElementById("Addtitle").value,
-                    author: document.getElementById("Addauthor").value,
-                    content: document.getElementById("Addcontent").value,
-                    thumbnail: document.getElementById("Addthumbnail").value,
+                "http://localhost/manga-comic-be/views/Dashboard/pages/chapter/chapter_api.php?method=4", {
+                    keyword: document.getElementById("Addkeyword").value,
+                    name: document.getElementById("Addname").value,
+                    story_id: document.getElementById("Addstory_id").value,
                     languages: document.getElementById("Addlanguages").value,
                     country: document.getElementById("Addcountry").value,
                 },
@@ -434,12 +379,12 @@
                     modal.style.display = "none";
                     alert("Thêm mới thành công!");
                     $.ajax({
-                        url: "http://localhost/manga-comic-be/views/Dashboard/pages/news/news_api.php?method=1",
+                        url: "http://localhost/manga-comic-be/views/Dashboard/pages/chapter/chapter_api.php?method=1",
                         method: "GET",
                         dataType: "json",
                         success(response) {
                             console.log(response);
-                            $('#stage').load('./pages/news/news_curd.php');
+                            $('#stage').load('./pages/chapter/chapter_curd.php?id=' + story_id_get);
 
                         }
 
@@ -457,20 +402,21 @@
             //gửi đi "id" của dữ liệu mà mình cần lấy
             var data = {}
             data["id"] = $("#id").val();
+            const story_id_get = "<?php echo $story_id_get ?>";
 
             $.post(
-                "http://localhost/manga-comic-be/views/Dashboard/pages/news/news_api.php?method=5", {
+                "http://localhost/manga-comic-be/views/Dashboard/pages/chapter/chapter_api.php?method=5", {
                     id: id
                 },
                 function(data, status) {
                     alert("Xóa thành công!");
                     $.ajax({
-                        url: "http://localhost/manga-comic-be/views/Dashboard/pages/news/news_api.php?method=1",
+                        url: "http://localhost/manga-comic-be/views/Dashboard/pages/chapter/chapter_api.php?method=1",
                         method: "GET",
                         dataType: "json",
                         success(response) {
                             console.log(response);
-                            $('#stage').load('./pages/news/news_curd.php');
+                            $('#stage').load('./pages/chapter/chapter_curd.php?id=' + story_id_get);
 
                         }
 
@@ -500,6 +446,12 @@
             if (event.target == modal) {
                 modal.style.display = "none";
             }
+        }
+
+        function chapter_images(id) {
+            //lấy dữ liệu từ api về
+                 $('#stage').load('./pages/chapter_images/chapter_images_curd.php?id=' + id);
+
         }
     </script>
 

@@ -21,29 +21,22 @@
 
 
     if($method == $METHOD_GET_ALL) {
-        $sql = "SELECT * FROM stories ";
+        $sql = "SELECT * FROM users ";
         $result = $db->selectall($sql);
     }
 
     if($method == $METHOD_GET_ONE) {
         $id=$_GET['id'];
-        $result = $db->selectone('stories',$id);
+        $result = $db->selectone('users',$id);
     }
 
     if($method == $METHOD_UPDATE){
         $data = array();
-        $data['keyword'] = $_POST['keyword'];
-        $data['name'] = $_POST['name'];
-        $data['name_romanji'] = $_POST['name_romanji'];
-        // $data['name_english'] = $_POST['name_english'];
-        $data['name_japan'] = $_POST['name_japan'];
-        $data['thumbnail'] = $_POST['thumbnail'];
-        $data['background'] = $_POST['background'];
-        $data['descr'] = $_POST['descr'];
-        $data['status_id'] = $_POST['status_id'];
-        $data['author_id'] = $_POST['author_id'];
+        $data['password'] = $_POST['password'];
+        $data['role_id'] = $_POST['role_id'];
+
         $where='id='.$_POST['id'];
-        $rs = $db->update('stories', $data,$where);
+        $rs = $db->update('users', $data,$where);
         if($rs){
             $result['update'] = true;
         }else{
@@ -53,19 +46,16 @@
  
     if($method == $METHOD_ADD){
         $data = array();
-        $data['keyword'] = $_POST['keyword'];
         $data['name'] = $_POST['name'];
-        $data['name_romanji'] = $_POST['name_romanji'];
-        // $data['name_english'] = $_POST['name_english'];
-        $data['name_japan'] = $_POST['name_japan'];
-        $data['thumbnail'] = $_POST['thumbnail'];
-        $data['background'] = $_POST['background'];
-        $data['descr'] = $_POST['descr'];
-        $data['status_id'] = $_POST['status_id'];
-        $data['author_id'] = $_POST['author_id'];
+        $data['email'] = $_POST['email'];
+        $data['username'] = $_POST['username'];
+        $data['password'] = $_POST['password'];
+        $data['phone'] = $_POST['phone'];
+        $data['role_id'] = $_POST['role_id'];
+        $data['avatar'] = $_POST['avatar'];
      
  
-        $rs = $db->insert('stories', $data);
+        $rs = $db->insert('users', $data);
         if($rs){
             $result['add'] = true;
         }else{
@@ -76,7 +66,7 @@
     
     if($method == $METHOD_DELETE){
         $where='id='.$_POST['id'];
-        $rs = $db->delete('stories',$where);
+        $rs = $db->delete('users',$where);
         if($rs){
             $result['delete'] = true;
         }else{
