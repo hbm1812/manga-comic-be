@@ -1,11 +1,11 @@
 -- comment
 DROP TABLE IF EXISTS `comment`;
 -- manga
-DROP TABLE IF EXISTS `satisfied_story`;
+-- DROP TABLE IF EXISTS `satisfied_story`;
 DROP TABLE IF EXISTS `satisfied`;
-DROP TABLE IF EXISTS `favorite_story`;
+-- DROP TABLE IF EXISTS `favorite_story`;
 DROP TABLE IF EXISTS `favorite`;
-DROP TABLE IF EXISTS `view_user`;
+-- DROP TABLE IF EXISTS `view_user`;
 DROP TABLE IF EXISTS `story_genres`;
 DROP TABLE IF EXISTS `chapter_images`;
 DROP TABLE IF EXISTS `genres`;

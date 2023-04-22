@@ -17,6 +17,14 @@
 
             return $result;
         }
+        // login show username and password 
+        static public function login($data = []){
+            $sql = "SELECT * FROM users WHERE username=:username AND password=:password";
+
+            $result = DB::execute($sql, $data);
+
+            return $result;
+        }
 
         static public function create($data = []){
             $sql = "INSERT INTO users SET name=:name, username=:username, email=:email, role_id=:role_id, password=:password, phone=:phone, avatar=:avatar";

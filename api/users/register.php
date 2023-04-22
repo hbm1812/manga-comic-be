@@ -7,44 +7,17 @@ header("Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type
 require_once "../../config/DB.php";
 require_once "../../model/users.php";
 
-$data = json_decode(file_get_contents("php://input"));
+// $data = json_decode(file_get_contents("php://input"));
+// $sql = `INSERT INTO users SET username= "huyRegis", email="huy123@gmail.com", password="123456"`;
+// $param = [
+//     'name' => $_POST["name"] ?? "",
+//     'email' => $_POST["email"] ?? "",
+//     'username' => $_POST["username"] ?? "",
+//     'password' => $_POST["password"] ?? "",
+//     'phone' => $_POST["phone"] ?? "",
+//     'role_id' => $_POST["role_id"] ?? "",
+//     'avatar' => $getFileName ?? null
+// ];
 
-$data = User::read();
-
-if($data) {
-    
-} else {
-    $respon["data"] = array(
-        "status" => "invalid"
-    );
-
-    echo json_encode($respon);
-}
-
-if(isset($data) && isset($_POST["username"])) {
-    $param = [];    
-    foreach($data as $value) {
-        echo "Value:". $value["username"];
-        if(isset($_POST["username"])) {
-            if($value["username"] !== $_POST["username"]) {
-                $param = [
-                    'email' => $_POST["email"] ?? "",
-                    'username' => $_POST["username"] ?? "",
-                    'password' => $_POST["password"] ?? "",        
-                ];
-
-                $respon["data"] = array(
-                    "status" => "valid"
-                );            
-                echo json_encode($respon);
-            }
-        } else {
-            $respon["data"] = array(
-                "status" => "invalid"
-            );
-
-            echo json_encode($respon);
-        }
-    }        
-    $create = User::create($param);
-}
+// // $create = User::create($param);
+// $create = DB::execute($sql, $param);

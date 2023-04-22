@@ -76,6 +76,28 @@ class Stories
         return $result;
     }
 
+    // find stories with name less 5 stories 
+    // find stories 
+    static public function findStoriesLessWithName($data = [])
+    {
+        // $sql = "SELECT `stories`.*, `status`.`name` AS `status_name` FROM `stories`, `status` WHERE `status`.`id` = `stories`.`status_id` ";
+
+        // `stories`.`name`=:name
+        // truyện phải có chapter mới hiện ra
+        // tìm theo key  
+        $sql = "SELECT `stories`.*, `status`.`name` AS `status_name`, COUNT(`chapter`.`keyword`) AS `chapter_lastest`, `author`.`name` AS `author_name`, `author`.`alias` AS `author_alias` 
+            FROM `stories`, `status`, `chapter`, `author` 
+            WHERE `status`.`id` = `stories`.`status_id` AND `stories`.`id` = `chapter`.`story_id` AND `stories`.`author_id` = `author`.`id` AND `stories`.`name` LIKE '%:name%'
+            GROUP BY `chapter`.`keyword` 
+            ORDER BY `stories`.`id` ASC
+        ";
+
+        // $sql = "SELECT `stories`.*, `status`.`name` AS `status_name`, COUNT(`chapter`.`keyword`) AS `chapter_lastest`, `author`.`name` AS `author_name`, `author`.`alias` AS `author_alias` FROM `stories`, `status`, `chapter`, `author` WHERE `status`.`id` = `stories`.`status_id` AND `stories`.`id` = `chapter`.`story_id` AND `stories`.`author_id` = `author`.`id` AND `stories`.`name` LIKE '%:name%' GROUP BY `chapter`.`keyword` ORDER BY `stories`.`id` ASC;";
+        $result = DB::execute($sql, $data);
+
+        return $result;
+    }
+
     // get chapter
     static public function getChapter($data = [])
     {          
@@ -101,6 +123,41 @@ class Stories
 
         return $result;
     }
+
+    // get status stories
+    static public function getStatus($data = [])
+    {
+        $sql = "SELECT * FROM `status`";
+
+        $result = DB::execute($sql, $data);
+
+        return $result;
+    }
+
+    // Get view 
+    static public function getViews()
+    {
+        $sql = "SELECT * FROM `view`";
+        $result = DB::execute($sql);
+
+        return $result;
+    }
+
+    static public function addViews($data = [])
+    {
+        $sql = "INSERT INTO `view` SET `user_id`=:user_id, `stories_id`=:stories_id";
+        $result = DB::execute($sql, $data);
+        return $result;
+    }
+
+    static public function getfavorites()
+    {
+        $sql = "SELECT * FROM `favorite`";
+        $result = DB::execute($sql);
+
+        return $result;
+    }
+
 
 
     // base
