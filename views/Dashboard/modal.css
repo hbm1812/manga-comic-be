@@ -18,15 +18,15 @@
 }
 
 .component_container textarea{
-     width: 70%;
-    height: 60px;
+     width: 60%;
+    height: 40px;
     margin-right: 20px;
 }
 .content_right textarea{
     height: 400px;
 }
 .content_right  span{
-    font-size: 40px;
+   
     font-weight: bold;
   }
 .component_container span{
@@ -38,7 +38,7 @@
     display: none; /* mặc định được ẩn đi */
     position: fixed; /* vị trí cố định */
     z-index: 1; /* Ưu tiên hiển thị trên cùng */
-    padding-top: 100px; 
+    padding-top: 60px; 
     left: 0;
     top: 0;
     width: 100%;

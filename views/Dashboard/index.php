@@ -25,6 +25,7 @@
     $(document).ready(function() {
        $("#news").click(function(event){
           $('#stage').load('./pages/news/news_curd.php');
+         
        });
     });
 
@@ -33,8 +34,33 @@
           $('#stage').load('./pages/stories/stories_curd.php');
        });
     });
-
-
+    $(document).ready(function() {
+       $("#users").click(function(event){
+          $('#stage').load('./pages/users/users_curd.php');
+       });
+    });
+    $(document).ready(function() {
+       $("#category_news").click(function(event){
+          $('#stage').load('./pages/category_news/category_news_curd.php');
+       });
+    });
+    $(document).ready(function() {
+       $("#author").click(function(event){
+          $('#stage').load('./pages/author/author_curd.php');
+          
+       });
+    });
+    $(document).ready(function() {
+       $("#status").click(function(event){
+          $('#stage').load('./pages/status/status_curd.php');
+       });
+    });
+    $(document).ready(function() {
+       $("#chapterBtn").click(function(event){
+          $('#stage').load('./pages/chapter/chapter_curd.php');
+       });
+    });
+    
 
  </script>
 </head>
@@ -289,14 +315,27 @@
             </a>
             <div class="collapse" id="general-pages">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><input type="button" id="news" value="tin tức" /> </li>
-                <li class="nav-item"><input type="button" id="stories" value="Truyện" /> </li>
+                <li class="nav-item"><input type="button" class="btn btn-outline-info" id="news" value="tin tức"/> </li>
+                <br>
+                <li class="nav-item"><input type="button" class="btn btn-outline-info" id="stories" value="Truyện" /> </li>
+                <br>
+                <li class="nav-item"><input type="button" class="btn btn-outline-info" id="users" value="Tài khoản" /> </li>
+                <br>
+                <li class="nav-item"><input type="button" class="btn btn-outline-info" id="category_news" value="Category_news" /></li>
+                <br>
+                <li class="nav-item"><input type="button" class="btn btn-outline-info" id="author" value="Tác giả" /></li>
+                <br>
+                <li class="nav-item"><input type="button" class="btn btn-outline-info" id="status" value="Trạng thái" /></li>
+                <br>
+                <li class="nav-item"><input type="button" class="btn btn-outline-info" id="chapter" value="Chapter" /></li>
+                <br>
                 <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a></li>
                 <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
                 <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
               </ul>
             </div>
           </li>
+          
           <li class="nav-item sidebar-actions">
             <span class="nav-link">
               <div class="border-bottom">

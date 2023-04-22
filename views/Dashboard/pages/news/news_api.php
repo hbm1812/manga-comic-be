@@ -9,9 +9,9 @@
     $METHOD_ADD_NEWS = 4;
     $METHOD_DELETE_NEWS = 5;
  
-    include_once '../api/news/functions.php';
+    include_once '../../../../api/functions.php';
  
-    $db = new News_Functions();
+    $db = new functions();
  
 
  
@@ -26,7 +26,7 @@
 
     if($method == $METHOD_GET_ONE_NEWS) {
         $id=$_GET['id'];
-        $result = $db->selectone($id);
+        $result = $db->selectone('news',$id);
     }
 
     if($method == $METHOD_UPDATE_NEWS){
@@ -34,6 +34,7 @@
         $data['title'] = $_POST['title'];
         $data['category_news_id'] = $_POST['category_news_id'];
         $data['languages'] = $_POST['languages'];
+        $data['thumbnail'] = $_POST['thumbnail'];
         $data['country'] = $_POST['country'];
         $data['content'] = $_POST['content'];
         $where='id='.$_POST['id'];

@@ -6,8 +6,8 @@ class News_functions{
         return $result;
     }
 
-    public function selectone($id){
-        $sql='SELECT * FROM news WHERE id='.$id;
+    public function selectone($table,$id){
+        $sql='SELECT * FROM '.$table.' WHERE id='.$id;
         $result=DB::execute($sql);
         return $result;
     }
