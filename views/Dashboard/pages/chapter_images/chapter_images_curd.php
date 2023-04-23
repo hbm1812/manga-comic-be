@@ -25,14 +25,17 @@ $chapter_id_get = $_GET['id'];
                     $("#table_content").html("");
                     for (i = 0; i < data.length; i++) {
                         var dataAPI = data[i];
+                        var number = i+1;
                         var str = ` 
                             
 
                             <table class="table" >
             <thead>
                 <tr>
+                    <th scope="col">#</th>
                     <th scope="col">ID</th>
                     <th scope="col">THUMBNAIL</th>
+                    <th scope="col">IMAGE</th>
                     <th scope="col">CHAPTER_ID</th>
                     <th scope="col">CREATED_AT</th>
                     <th scope="col">UPDATED_AT</th>
@@ -42,8 +45,10 @@ $chapter_id_get = $_GET['id'];
             <tbody>
                 
                     <tr>
+                        <td scope="row">${number}</td>
                         <td scope="row">${dataAPI['id']}</td>
                         <td style="width:200px ;">${dataAPI['thumbnail']}</td>
+                        <td style="width:200px"><img style="width:130px; height:160px; border-radius:0 !important;" src="${dataAPI['thumbnail']}" alt="" srcset=""></td>
                         <td>${dataAPI['chapter_id']}</td>
                         <td>${dataAPI['created_at']}</td>
                         <td>${dataAPI['updated_at']}</td>
@@ -51,6 +56,8 @@ $chapter_id_get = $_GET['id'];
                         <td>
                            
                             <button class="btn btn-warning" id="myBtn" onclick="update(${dataAPI['id']})">Sửa</button>
+                            <br>
+                            <br>
                             <button class="btn btn-danger btn-delete" id="BtnDelete" onclick="dele(${dataAPI['id']})">Xóa</button>
                            
 
@@ -158,7 +165,7 @@ $chapter_id_get = $_GET['id'];
                     <div class="content_right">
                         <div class="component_container">
                             <span>ID</span>
-                            <input type="text" id="Addchapter_id" disabled value="<?php echo $chaptertừ_id_get ?>">
+                            <input type="text" id="Addchapter_id" disabled value="<?php echo $chapter_id_get ?>">
                         </div>
 
 
@@ -344,8 +351,9 @@ $chapter_id_get = $_GET['id'];
             var data = {}
             data["id"] = $("#id").val();
             const chapter_id_get = "<?php echo $chapter_id_get ?>";
-
-            $.post(
+            var result =  confirm("Bạn có chắc là muốn xóa chứ?");
+			if(result ==true){
+                $.post(
                 "http://localhost/manga-comic-be/views/Dashboard/pages/chapter_images/chapter_images_api.php?method=5", {
                     id: id
                 },
@@ -363,6 +371,9 @@ $chapter_id_get = $_GET['id'];
 
                     });
                 });
+			}
+
+            
         }
 
 

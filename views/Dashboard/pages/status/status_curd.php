@@ -330,8 +330,9 @@
             //gửi đi "id" của dữ liệu mà mình cần lấy
             var data = {}
             data["id"] = $("#id").val();
-
-            $.post(
+            var result =  confirm("Bạn có chắc là muốn xóa chứ?");
+			if(result ==true){
+                $.post(
                 "http://localhost/manga-comic-be/views/Dashboard/pages/status/status_api.php?method=5", {
                     id: id
                 },
@@ -349,6 +350,9 @@
 
                     });
                 });
+			}
+
+            
         }
 
 

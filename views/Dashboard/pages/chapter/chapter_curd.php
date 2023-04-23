@@ -403,8 +403,9 @@ $story_id_get = $_GET['id'];
             var data = {}
             data["id"] = $("#id").val();
             const story_id_get = "<?php echo $story_id_get ?>";
-
-            $.post(
+            var result =  confirm("Bạn có chắc là muốn xóa chứ?");
+			if(result ==true){
+                $.post(
                 "http://localhost/manga-comic-be/views/Dashboard/pages/chapter/chapter_api.php?method=5", {
                     id: id
                 },
@@ -422,6 +423,8 @@ $story_id_get = $_GET['id'];
 
                     });
                 });
+			}
+            
         }
 
 

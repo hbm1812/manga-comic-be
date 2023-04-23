@@ -42,13 +42,14 @@
                         <td style="width:200px ;">${dataAPI['name']}</td>
                         <td style="width:200px ;">${dataAPI['alias']}</td>
                         <td style="width:200px"><img style="width:200px; height:100px; border-radius:0 !important;" src="${dataAPI['thumbnail']}" alt="" srcset=""></td>
-                        <td>${dataAPI['descr']}</td>
+                        <td style="width:200px">${dataAPI['descr']}</td>
                         <td>${dataAPI['created_at']}</td>
                         <td>${dataAPI['updated_at']}</td>
                         <td>
                            
-                            <!-- <a href="./edit.php?id" class="btn btn-warning">Sửa</a> -->
                             <button class="btn btn-warning" id="myBtn" onclick="update(${dataAPI['id']})">Sửa</button>
+                            <br>
+                            <br>
                             <button class="btn btn-danger btn-delete" id="BtnDelete" onclick="dele(${dataAPI['id']})">Xóa</button>
                            
 
@@ -368,8 +369,9 @@
             //gửi đi "id" của dữ liệu mà mình cần lấy
             var data = {}
             data["id"] = $("#id").val();
-
-            $.post(
+            var result =  confirm("Bạn có chắc là muốn xóa chứ?");
+			if(result ==true){
+                $.post(
                 "http://localhost/manga-comic-be/views/Dashboard/pages/author/author_api.php?method=5", {
                     id: id
                 },
@@ -387,6 +389,8 @@
 
                     });
                 });
+			}
+           
         }
 
 
