@@ -56,8 +56,8 @@
        });
     });
     $(document).ready(function() {
-       $("#chapterBtn").click(function(event){
-          $('#stage').load('./pages/chapter/chapter_curd.php');
+       $("#genres").click(function(event){
+          $('#stage').load('./pages/genres/genres_curd.php');
        });
     });
     
@@ -315,19 +315,21 @@
             </a>
             <div class="collapse" id="general-pages">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><input type="button" class="btn btn-outline-info" id="news" value="tin tức"/> </li>
+                
                 <br>
-                <li class="nav-item"><input type="button" class="btn btn-outline-info" id="stories" value="Truyện" /> </li>
+                <li class="nav-item"><input style="width:180px!important" type="button" class="btn btn-outline-info" id="stories" value="Truyện" /> </li>
                 <br>
-                <li class="nav-item"><input type="button" class="btn btn-outline-info" id="users" value="Tài khoản" /> </li>
+                <li class="nav-item"><input style="width:180px!important"  type="button" class="btn btn-outline-info" id="genres" value="Thể loại truyện" /></li>
                 <br>
-                <li class="nav-item"><input type="button" class="btn btn-outline-info" id="category_news" value="Category_news" /></li>
+                <li class="nav-item"><input style="width:180px!important"  type="button" class="btn btn-outline-info" id="status" value="Trạng thái" /></li>
                 <br>
-                <li class="nav-item"><input type="button" class="btn btn-outline-info" id="author" value="Tác giả" /></li>
+                <li class="nav-item"><input style="width:180px!important"  type="button" class="btn btn-outline-info" id="news" value="tin tức"/> </li>
                 <br>
-                <li class="nav-item"><input type="button" class="btn btn-outline-info" id="status" value="Trạng thái" /></li>
+                <li class="nav-item"><input style="width:180px!important"  type="button" class="btn btn-outline-info" id="category_news" value="Thể loại tin tức" /></li>
                 <br>
-                <li class="nav-item"><input type="button" class="btn btn-outline-info" id="chapter" value="Chapter" /></li>
+                <li class="nav-item"><input style="width:180px!important"  type="button" class="btn btn-outline-info" id="author" value="Tác giả" /></li>
+                <br>
+                <li class="nav-item"><input style="width:180px!important"  type="button" class="btn btn-outline-info" id="users" value="Tài khoản" /> </li>
                 <br>
                 <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a></li>
                 <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>

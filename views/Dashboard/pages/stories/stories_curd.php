@@ -59,9 +59,10 @@
                             <button class="btn btn-warning" id="myBtn" onclick="update(${dataAPI['id']})">Sửa</button>
                             <br>
                             <br>
+                            <button class="btn btn-dark" id="genresBtn" onclick="genres(${dataAPI['id']})">Thể loại</button>
+                            <br>
                             <br>
                             <button class="btn btn-info" id="chapterBtn" onclick="chapter(${dataAPI['id']})">Chapter</button>
-                            <br>
                             <br>
                             <br>
                             <button class="btn btn-danger btn-delete" id="BtnDelete" onclick="dele(${dataAPI['id']})">Xóa</button>
@@ -554,6 +555,12 @@
         function chapter(id) {
             //lấy dữ liệu từ api về
                  $('#stage').load('./pages/chapter/chapter_curd.php?id=' + id);
+
+        }
+
+        function genres(id) {
+            //lấy dữ liệu từ api về
+                 $('#stage').load('./pages/story_genres/story_genres_curd.php?id=' + id);
 
         }
     </script>
