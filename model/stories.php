@@ -150,11 +150,35 @@ class Stories
         return $result;
     }
 
-    static public function getfavorites()
+    static public function getFavorites()
     {
         $sql = "SELECT * FROM `favorite`";
         $result = DB::execute($sql);
 
+        return $result;
+    }
+
+    static public function addFavorites($data = [])
+    {
+        $sql = "INSERT INTO `favorite` SET `user_id`=:user_id, `stories_id`=:stories_id";
+        $result = DB::execute($sql, $data);
+        return $result;
+    }
+
+    // get stories genres 
+    static public function getStoryGenres($data = [])
+    {
+        $sql = "SELECT * FROM `story_genres`";
+        $result = DB::execute($sql, $data);
+
+        return $result;
+    }
+
+    // get character in story
+    static public function getCharacter($data = [])
+    {
+        $sql = "SELECT * FROM `character` WHERE `story_id`=:story_id";
+        $result = DB::execute($sql, $data);
         return $result;
     }
 
