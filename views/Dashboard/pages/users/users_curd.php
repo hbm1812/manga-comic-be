@@ -56,6 +56,8 @@
                            
                             <!-- <a href="./edit.php?id" class="btn btn-warning">Sửa</a> -->
                             <button class="btn btn-warning" id="myBtn" onclick="update(${dataAPI['id']})">Sửa</button>
+                            <br>
+                            <br>
                             <button class="btn btn-danger btn-delete" id="BtnDelete" onclick="dele(${dataAPI['id']})">Xóa</button>
                            
 
@@ -400,8 +402,9 @@
             //gửi đi "id" của dữ liệu mà mình cần lấy
             var data = {}
             data["id"] = $("#id").val();
-
-            $.post(
+            var result =  confirm("Bạn có chắc là muốn xóa chứ?");
+			if(result ==true){
+                $.post(
                 "http://localhost/manga-comic-be/views/Dashboard/pages/users/users_api.php?method=5", {
                     id: id
                 },
@@ -418,7 +421,10 @@
                         }
 
                     });
-                });
+                }); 
+			}
+
+           
         }
 
 

@@ -1,3 +1,8 @@
+<?php
+$story_id_get = $_GET['id'];
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,9 +15,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
+            const story_id_get = "<?php echo $story_id_get ?>";
             window.scrollTo(0, 0);
             $.ajax({
-                url: "http://localhost/manga-comic-be/views/Dashboard/pages/status/status_api.php?method=1",
+                url: "http://localhost/manga-comic-be/views/Dashboard/pages/story_genres/story_genres_api.php?method=6&id=" + story_id_get,
                 dataType: 'json',
                 success: function(data) {
                     console.log(data);
@@ -26,26 +32,26 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">TRẠNG THÁI</th>
-                    <th scope="col">KEYWORD</th>
-                    <th scope="col">NGÀYTẠO</th>
-                    <th scope="col">Lần cuối sửa</th>
-                    <th scope="col">CHỨC NĂNG</th>
+                    <th scope="col">GENRES_ID</th>
+                    <th scope="col">STORY_ID</th>
+                    <th scope="col">CREATED_AT</th>
+                    <th scope="col">UPDATED_AT</th>
+                    <th scope="col">FUNCTIONS</th>
                 </tr>
             </thead>
             <tbody>
                 
                     <tr>
                         <td scope="row">${dataAPI['id']}</td>
-                        <td style="width:200px ;">${dataAPI['name']}</td>
-                        <td style="width:200px ;">${dataAPI['keyword']}</td>
+                        <td style="width:200px ;">${dataAPI['genres_id']}</td>
+                        <td style="width:200px ;">${dataAPI['story_id']}</td>                     
                         <td>${dataAPI['created_at']}</td>
                         <td>${dataAPI['updated_at']}</td>
 
                         <td>
                            
                             <!-- <a href="./edit.php?id" class="btn btn-warning">Sửa</a> -->
-                            <button class="btn btn-warning" id="myBtn" onclick="update(${dataAPI['id']})">Sửa</button>
+                            <br>
                             <button class="btn btn-danger btn-delete" id="BtnDelete" onclick="dele(${dataAPI['id']})">Xóa</button>
                            
 
@@ -61,11 +67,30 @@
                 }
             });
         })
+
+        //the loai tin tuc cho modal create
+        $(document).ready(function() {
+            $.ajax({
+                url: "http://localhost/manga-comic-be/views/Dashboard/pages/genres/genres_api.php?method=1",
+                dataType: 'json',
+                success: function(data) {
+                    console.log(data);
+                    $("#Addcategory_news_id").html("");
+                    for (i = 0; i < data.length; i++) {
+                        var the_loai_truyen = data[i];
+                        var str = `                                                                                
+                                <option value="${the_loai_truyen['id']}">${the_loai_truyen['name']}</option>                                  
+                            `;
+                        $("#Addgenres_id").append(str);
+                    }
+                }
+            });
+        })
     </script>
 </head>
 
 <body>
-    <h3>DANH SÁCH TRẠNG THÁI</h3>
+    <h3>DANH SÁCH THỂ LOẠI CỦA TRUYỆN:</h3>
     <button type="button" class="btn btn-secondary" id="BtnAdd">Thêm mới</button>
     <div class="content" id="table_content">
 
@@ -73,50 +98,7 @@
     </div>
 
 
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-
-        <!-- Nội dung form modal -->
-        <div class="modal-content">
-            <form action="#">
-                <span class="close">&times;</span>
-                <h2>CHỈNH SỬA TRẠNG THÁI</h2>
-
-                <div class="modal_content">
-                    <!--content ben trai-->
-                    <div class="content_left">
-                        <div class="component_container">
-                            <span>ID</span>
-                            <input type="text" name="id" id="id" disabled>
-                        </div>
-                        <div class="component_container">
-                            <span>TÊN TRẠNG THÁI</span>
-                            <input type="text" name="name" id="name">
-                        </div>
-                        <div class="component_container">
-                            <span>KEYWORD</span>
-                            <textarea name="keyword" id="keyword"></textarea>
-                        </div>
-
-
-
-                    </div>
-
-
-                    <!--content ben phai-->
-                    <div class="content_right">
-
-                        <button type="button" class="btn btn-secondary" id="BtnExit">Thoát</button>
-                        <button type="button" class="btn btn-success" id="BtnUpdate">Cập nhật</button>
-
-                    </div>
-
-                </div>
-
-            </form>
-        </div>
-
-    </div>
+    
 
 
 
@@ -132,26 +114,35 @@
         <div class="modal-content">
             <form action="#">
                 <span class="Addclose">&times;</span>
-                <h2>THÊM MỚI</h2>
+                <h2>THÊM MỚI THỂ LOẠI</h2>
 
                 <div class="modal_content">
                     <!--content ben trai-->
                     <div class="content_left">
                         <div class="component_container">
-                            <span>TÊN TRẠNG THÁI</span>
-                            <input type="text" name="Addname" id="Addname">
+                            <span>STORY_ID</span>
+                            <input type="text" id="Addstory_id" disabled value="<?php echo $story_id_get ?>">
                         </div>
                         <div class="component_container">
-                            <span>KEYWORD</span>
-                            <input type="text" name="Addkeyword" id="Addkeyword">
+                            <span>THỂ LOẠI TRUYỆN:</span>
+                            <!-- <input type="text" name="Addcategory_news_id" id="Addcategory_news_id"> -->
+                            <select name="Addgenres_id" id="Addgenres_id">
+                                <!-- <option value="2">Anime</option>
+                                <option value="3">Truyện tranh</option>
+                                <option value="4">Thông tin</option> -->
+                            </select>
                         </div>
-
+                      
 
                     </div>
 
 
                     <!--content ben phai-->
                     <div class="content_right">
+                       
+
+                        <br>
+                        <br>
 
                         <button type="button" class="btn btn-secondary" id="BtnAddExit">Thoát</button>
                         <button type="button" class="btn btn-success" id="BtnAddNew">Thêm mới</button>
@@ -176,7 +167,7 @@
 
     <script>
         // lấy phần Modal
-        var modal = document.getElementById('myModal');
+       
         var modal_add_news = document.getElementById('myModalAddNews');
 
         var BtnAdd = document.getElementById("BtnAdd");
@@ -185,12 +176,12 @@
         // var btn = document.getElementsByClassName("myBtn");
 
         // Lấy phần span đóng Modal
-        var span = document.getElementsByClassName("close")[0];
+        
         var Addspan = document.getElementsByClassName("Addclose")[0];
-        var BtnExit = document.getElementById("BtnExit");
+       
         var BtnAddExit = document.getElementById("BtnAddExit");
 
-        var BtnUpdate = document.getElementById("BtnUpdate");
+        
         var BtnAddNew = document.getElementById("BtnAddNew");
 
 
@@ -198,72 +189,10 @@
 
 
 
-        // Khi button được click thi mở Modal
-        function update(id) {
-            // alert("\nid: " + id);
-            //lấy dữ liệu từ api về
-            $.ajax({
-                    url: "http://localhost/manga-comic-be/views/Dashboard/pages/status/status_api.php?method=2&id=" + id,
-                    method: "GET",
-                    dataType: "json"
-
-                })
-                .done(function(response) {
-                    modal.style.display = "block";
-                    console.log(response);
-                    response.forEach(item => {
-                        document.getElementById("id").value = response[0].id;
-                        document.getElementById("keyword").value = response[0].keyword;
-                        document.getElementById("name").value = response[0].name;
- 
-                    });
-
-
-                })
-        }
 
 
 
-        //khi bam nut cap nhat
-        BtnUpdate.onclick = function() {
-
-            //gửi đi "id" của dữ liệu mà mình cần lấy
-
-            var data = {}
-            data["id"] = $("#id").val();
-            data["keyword"] = $("#keyword").val();
-            data["name"] = $("#name").val();
-
-
-            $.post(
-                "http://localhost/manga-comic-be/views/Dashboard/pages/status/status_api.php?method=3", {
-                    id: document.getElementById("id").value,
-                    keyword: document.getElementById("keyword").value,
-                    name: document.getElementById("name").value,
-                },
-                function(data, status) {
-                    modal.style.display = "none";
-                    alert("Sửa thành công!");
-
-                    $.ajax({
-                        url: "http://localhost/manga-comic-be/views/Dashboard/pages/status/status_api.php?method=1",
-                        method: "GET",
-                        dataType: "json",
-                        success(response) {
-                            console.log(response);
-                            $('#stage').load('./pages/status/status_curd.php');
-
-                        }
-
-                    });
-                });
-
-        }
-
-
-
-
-        // Them moi news
+        // Them moi
         BtnAdd.onclick = function() {
 
             modal_add_news.style.display = "block";
@@ -293,26 +222,28 @@
 
             var data = {}
 
-            data["keyword"] = $("#Addkeyword").val();
-            data["name"] = $("#Addname").val();
 
+            data["genres_id"] = $("#Addgenres_id").val();
+            data["story_id"] = $("#Addstory_id").val();
+
+            const story_id_get = "<?php echo $story_id_get ?>";
 
             $.post(
-                "http://localhost/manga-comic-be/views/Dashboard/pages/status/status_api.php?method=4", {
-                    keyword: document.getElementById("Addkeyword").value,
-                    name: document.getElementById("Addname").value,
+                "http://localhost/manga-comic-be/views/Dashboard/pages/story_genres/story_genres_api.php?method=4", {
+                    genres_id: document.getElementById("Addgenres_id").value,
+                    story_id: document.getElementById("Addstory_id").value,
 
                 },
                 function(data, status) {
                     modal.style.display = "none";
                     alert("Thêm mới thành công!");
                     $.ajax({
-                        url: "http://localhost/manga-comic-be/views/Dashboard/pages/status/status_api.php?method=1",
+                        url: "http://localhost/manga-comic-be/views/Dashboard/pages/story_genres/story_genres_api.php?method=1",
                         method: "GET",
                         dataType: "json",
                         success(response) {
                             console.log(response);
-                            $('#stage').load('./pages/status/status_curd.php');
+                            $('#stage').load('./pages/story_genres/story_genres_curd.php?id=' + story_id_get);
 
                         }
 
@@ -330,28 +261,28 @@
             //gửi đi "id" của dữ liệu mà mình cần lấy
             var data = {}
             data["id"] = $("#id").val();
+            const story_id_get = "<?php echo $story_id_get ?>";
             var result =  confirm("Bạn có chắc là muốn xóa chứ?");
 			if(result ==true){
                 $.post(
-                "http://localhost/manga-comic-be/views/Dashboard/pages/status/status_api.php?method=5", {
+                "http://localhost/manga-comic-be/views/Dashboard/pages/story_genres/story_genres_api.php?method=5", {
                     id: id
                 },
                 function(data, status) {
                     alert("Xóa thành công!");
                     $.ajax({
-                        url: "http://localhost/manga-comic-be/views/Dashboard/pages/status/status_api.php?method=1",
+                        url: "http://localhost/manga-comic-be/views/Dashboard/pages/story_genres/story_genres_api.php?method=1",
                         method: "GET",
                         dataType: "json",
                         success(response) {
                             console.log(response);
-                            $('#stage').load('./pages/status/status_curd.php');
+                            $('#stage').load('./pages/story_genres/story_genres_curd.php?id=' + story_id_get);
 
                         }
 
                     });
                 });
 			}
-
             
         }
 
@@ -378,6 +309,7 @@
                 modal.style.display = "none";
             }
         }
+
     </script>
 
 

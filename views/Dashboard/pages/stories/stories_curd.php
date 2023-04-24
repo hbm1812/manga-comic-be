@@ -19,6 +19,7 @@
                     $("#table_content").html("");
                     for (i = 0; i < data.length; i++) {
                         var dataAPI = data[i];
+                        var number = i+1;
                         var str = ` 
                             
 
@@ -26,9 +27,9 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
+                    <th scope="col">ID</th>
                     <th scope="col">name_vienamese</th>
                     <th scope="col">name_romanji</th>
-                    <th scope="col">name_english</th>
                     <th scope="col">name_japan</th>
                     <th scope="col">thumbnail</th>
                     <th scope="col">background</th>
@@ -42,10 +43,10 @@
             <tbody>
                 
                     <tr>
+                        <td scope="row">${number}</td>
                         <td scope="row">${dataAPI['id']}</td>
                         <td style="width:200px ;">${dataAPI['name']}</td>
                         <td style="width:200px ;">${dataAPI['name_romanji']}</td>
-                        <td style="width:200px ;">${dataAPI['name_english']}</td>
                         <td style="width:200px ;">${dataAPI['name_name_japan']}</td>
                         <td style="width:200px"><img style="width:200px; height:100px; border-radius:0 !important;" src="${dataAPI['thumbnail']}" alt="" srcset=""></td>
                         <td style="width:200px"><img style="width:200px; height:100px; border-radius:0 !important;" src="${dataAPI['background']}" alt="" srcset=""></td>
@@ -59,9 +60,10 @@
                             <button class="btn btn-warning" id="myBtn" onclick="update(${dataAPI['id']})">Sửa</button>
                             <br>
                             <br>
+                            <button class="btn btn-dark" id="genresBtn" onclick="genres(${dataAPI['id']})">Thể loại</button>
+                            <br>
                             <br>
                             <button class="btn btn-info" id="chapterBtn" onclick="chapter(${dataAPI['id']})">Chapter</button>
-                            <br>
                             <br>
                             <br>
                             <button class="btn btn-danger btn-delete" id="BtnDelete" onclick="dele(${dataAPI['id']})">Xóa</button>
@@ -503,8 +505,9 @@
             //gửi đi "id" của dữ liệu mà mình cần lấy
             var data = {}
             data["id"] = $("#id").val();
-
-            $.post(
+            var result =  confirm("Bạn có chắc là muốn xóa chứ?");
+			if(result ==true){
+                $.post(
                 "http://localhost/manga-comic-be/views/Dashboard/pages/stories/stories_api.php?method=5", {
                     id: id
                 },
@@ -522,6 +525,8 @@
 
                     });
                 });
+			}
+            
         }
 
 
@@ -554,6 +559,12 @@
         function chapter(id) {
             //lấy dữ liệu từ api về
                  $('#stage').load('./pages/chapter/chapter_curd.php?id=' + id);
+
+        }
+
+        function genres(id) {
+            //lấy dữ liệu từ api về
+                 $('#stage').load('./pages/story_genres/story_genres_curd.php?id=' + id);
 
         }
     </script>
