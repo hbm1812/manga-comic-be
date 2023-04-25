@@ -151,7 +151,7 @@
                     <!--content ben trai-->
                     <div class="content_left">
                         <div class="component_container">
-                            <span>Tên TÁC GIẢ</span>
+                            <span>TÊN TÁC GIẢ</span>
                             <input type="text" name="Addname" id="Addname">
                         </div>
                         <div class="component_container">

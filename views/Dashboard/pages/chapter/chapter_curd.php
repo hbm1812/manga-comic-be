@@ -132,6 +132,7 @@ $story_id_get = $_GET['id'];
                             <select name="languages" id="languages">
                                 <option value="EN">EN</option>
                                 <option value="Vi">Vi</option>
+                                <option value="JP">JP</option>
                             </select>
 
                             <span style="margin-left: 180px;">Country</span>
@@ -199,6 +200,7 @@ $story_id_get = $_GET['id'];
                             <select name="languages" id="Addlanguages">
                                 <option value="EN">EN</option>
                                 <option value="Vi">Vi</option>
+                                <option value="JP">JP</option>
                             </select>
 
                             <span style="margin-left: 180px;">Country</span>
