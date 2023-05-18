@@ -19,29 +19,32 @@ $data = json_decode(file_get_contents("php://input"));
 //     die;
 // }
 
-const SERVER = "http:". DIRECTORY_SEPARATOR . DIRECTORY_SEPARATOR . "localhost" . DIRECTORY_SEPARATOR . "manga-comic-be" . DIRECTORY_SEPARATOR;
+
+const SERVER = "http:" . DIRECTORY_SEPARATOR . DIRECTORY_SEPARATOR . "localhost" . DIRECTORY_SEPARATOR . "manga-comic-be" . DIRECTORY_SEPARATOR;
 const IMAGE_PATH = ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR;
 const AVATAR_PATH = "assets" . DIRECTORY_SEPARATOR . "images" . DIRECTORY_SEPARATOR . "avatarUser" . DIRECTORY_SEPARATOR;
 
-if (isset($_POST['username'])) {    
+if (isset($_POST['username'])) {
     $formData = array_merge(array(), $_POST);
-    $formData = array_merge($formData, $_FILES);    
-    
+    $formData = array_merge($formData, $_FILES);
+
     if ($formData["avatar"]["size"] !== 0) {
-        $file = $formData["avatar"];        
-        $extension = current(array_slice(explode(".", $file["name"]), -1));        
-        $fileName = AVATAR_PATH . uniqid().".".$extension;
+        $file = $formData["avatar"];
+        $extension = current(array_slice(explode(".", $file["name"]), -1));
+        $fileName = AVATAR_PATH . uniqid() . "." . $extension;
         move_uploaded_file($file["tmp_name"], IMAGE_PATH . $fileName);
 
         $getFileName = SERVER . $fileName;
     }
+
+
 
     $param = [
         // 'username' => $data->username || $_POST["username"],
         // 'email' => $data->email || $_POST["email"],
         // 'role' => $data->role || $_POST["role"],
         // 'password' => $data->password || $_POST["password"]
-        
+
         'name' => $_POST["name"] ?? "",
         'email' => $_POST["email"] ?? "",
         'username' => $_POST["username"] ?? "",
@@ -51,6 +54,5 @@ if (isset($_POST['username'])) {
         'avatar' => $getFileName ?? null
     ];
 
-    $create = User::create($param);    
-
+    $create = User::create($param);
 }

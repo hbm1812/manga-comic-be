@@ -10,7 +10,7 @@
         }   
         
         static public function show($data = []){
-            $sql = "SELECT comment.*, users.name, users.avatar AS `user_avatar` FROM comment, users WHERE users.id = comment.user_id AND comment.news_id = :news_id OR comment.`story_id`=:story_id";
+            $sql = "SELECT comment.*, users.name, users.avatar AS `user_avatar` FROM comment, users WHERE users.id = comment.user_id AND (comment.news_id = :news_id OR comment.`story_id`=:story_id)";
 
             $result = DB::execute($sql, $data);
 

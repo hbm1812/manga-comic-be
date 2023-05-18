@@ -33,15 +33,6 @@ if (isset($_POST['id'])) {
     $users = User::show($param);
     $user = array();
     
-    if ($formData["avatar"]["size"] !== 0) {
-        $file = $formData["avatar"];        
-        $extension = current(array_slice(explode(".", $file["name"]), -1));        
-        $fileName = AVATAR_PATH . uniqid().".".$extension;
-        move_uploaded_file($file["tmp_name"], IMAGE_PATH . $fileName);
-
-        $getFileName = SERVER . $fileName;
-    }
-    
     if (!empty($users)) {
         $user = array_merge(array(), $users[0]);
 
@@ -49,12 +40,23 @@ if (isset($_POST['id'])) {
         $getLinkAvatar = implode(DIRECTORY_SEPARATOR, array_slice(explode(DIRECTORY_SEPARATOR, $getAvatar), 4));
     }
 
-    if (!empty($user["avatar"])) {
-        // Xoá file cũ
-        if (file_exists(IMAGE_PATH . $getLinkAvatar)) {
-            unlink(IMAGE_PATH . $getLinkAvatar);
+    if ($formData["avatar"]["size"] !== 0) {        
+        $file = $formData["avatar"];        
+        $extension = current(array_slice(explode(".", $file["name"]), -1));        
+        $fileName = AVATAR_PATH . uniqid().".".$extension;
+        move_uploaded_file($file["tmp_name"], IMAGE_PATH . $fileName);
+
+        $getFileName = SERVER . $fileName;
+        
+    
+        if (!empty($user["avatar"])) {
+            // Xoá file cũ
+            if (file_exists(IMAGE_PATH . $getLinkAvatar)) {
+                unlink(IMAGE_PATH . $getLinkAvatar);
+            }
         }
     }
+    
 
     $param = [
         // 'username' => $data->username || $_POST["username"],
@@ -69,7 +71,7 @@ if (isset($_POST['id'])) {
         'password' => $_POST["password"] ?? "",
         'phone' => $_POST["phone"] ?? "",
         'role_id' => $_POST["role_id"] ?? "",
-        'avatar' => $getFileName ?? null
+        'avatar' => $getFileName ?? $getAvatar
     ];
 
     $update = User::update($param);    

@@ -87,7 +87,7 @@ class Stories
         // tìm theo key  
         $sql = "SELECT `stories`.*, `status`.`name` AS `status_name`, COUNT(`chapter`.`keyword`) AS `chapter_lastest`, `author`.`name` AS `author_name`, `author`.`alias` AS `author_alias` 
             FROM `stories`, `status`, `chapter`, `author` 
-            WHERE `status`.`id` = `stories`.`status_id` AND `stories`.`id` = `chapter`.`story_id` AND `stories`.`author_id` = `author`.`id` AND `stories`.`name` LIKE '%:name%'
+            WHERE `status`.`id` = `stories`.`status_id` AND `stories`.`id` = `chapter`.`story_id` AND `stories`.`author_id` = `author`.`id`
             GROUP BY `chapter`.`keyword` 
             ORDER BY `stories`.`id` ASC
         ";

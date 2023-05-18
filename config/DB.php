@@ -37,7 +37,13 @@ class DB
         $statement = DB::getConnection()->prepare($sql);
         $statement->setFetchMode(PDO::FETCH_ASSOC);
 
-        $statement->execute($data);
+        try {
+            //code...
+            $statement->execute($data);
+        } catch (\Throwable $th) {
+            $statement->debugDumpParams();
+            //throw $th;
+        }
         $result =[];
 
         while($item = $statement->fetch()) {

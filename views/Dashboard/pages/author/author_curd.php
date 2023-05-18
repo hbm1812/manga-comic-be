@@ -238,7 +238,7 @@
                         document.getElementById("id").value = response[0].id;
                         document.getElementById("keyword").value = response[0].keyword;
                         document.getElementById("name").value = response[0].name;
-                        document.getElementById("alias").value = response[0].alias;                      
+                        document.getElementById("alias").value = response[0].alias;
                         document.getElementById("avatar").value = response[0].avatar;
                         document.getElementById("descr").value = response[0].descr;
                     });
@@ -251,7 +251,7 @@
 
         //khi bam nut cap nhat
         BtnUpdate.onclick = function() {
-            
+
             //gửi đi "id" của dữ liệu mà mình cần lấy
 
             var data = {}
@@ -272,9 +272,9 @@
                     alias: document.getElementById("alias").value,
                     avatar: document.getElementById("avatar").value,
                     descr: document.getElementById("descr").value,
-                   
+
                 },
-                
+
                 function(data, status) {
                     alert("Sửa thành công!");
                     modal.style.display = "none";
@@ -369,28 +369,28 @@
             //gửi đi "id" của dữ liệu mà mình cần lấy
             var data = {}
             data["id"] = $("#id").val();
-            var result =  confirm("Bạn có chắc là muốn xóa chứ?");
-			if(result ==true){
+            var result = confirm("Bạn có chắc là muốn xóa chứ?");
+            if (result == true) {
                 $.post(
-                "http://localhost/manga-comic-be/views/Dashboard/pages/author/author_api.php?method=5", {
-                    id: id
-                },
-                function(data, status) {
-                    alert("Xóa thành công!");
-                    $.ajax({
-                        url: "http://localhost/manga-comic-be/views/Dashboard/pages/author/author_api.php?method=1",
-                        method: "GET",
-                        dataType: "json",
-                        success(response) {
-                            console.log(response);
-                            $('#stage').load('./pages/author/author_curd.php');
+                    "http://localhost/manga-comic-be/views/Dashboard/pages/author/author_api.php?method=5", {
+                        id: id
+                    },
+                    function(data, status) {
+                        alert("Xóa thành công!");
+                        $.ajax({
+                            url: "http://localhost/manga-comic-be/views/Dashboard/pages/author/author_api.php?method=1",
+                            method: "GET",
+                            dataType: "json",
+                            success(response) {
+                                console.log(response);
+                                $('#stage').load('./pages/author/author_curd.php');
 
-                        }
+                            }
 
+                        });
                     });
-                });
-			}
-           
+            }
+
         }
 
 
