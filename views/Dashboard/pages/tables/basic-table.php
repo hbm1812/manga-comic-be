@@ -17,14 +17,57 @@
     <link rel="stylesheet" href="../../assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script type="text/javascript" language="javascript">
+    $(document).ready(function() {
+       $("#news").click(function(event){
+          $('#stage').load('../news/news_curd.php');
+         
+       });
+    });
+
+    $(document).ready(function() {
+       $("#stories").click(function(event){
+          $('#stage').load('../stories/stories_curd.php');
+       });
+    });
+    $(document).ready(function() {
+       $("#users").click(function(event){
+          $('#stage').load('../users/users_curd.php');
+       });
+    });
+    $(document).ready(function() {
+       $("#category_news").click(function(event){
+          $('#stage').load('../category_news/category_news_curd.php');
+       });
+    });
+    $(document).ready(function() {
+       $("#author").click(function(event){
+          $('#stage').load('../author/author_curd.php');
+          
+       });
+    });
+    $(document).ready(function() {
+       $("#status").click(function(event){
+          $('#stage').load('../status/status_curd.php');
+       });
+    });
+    $(document).ready(function() {
+       $("#genres").click(function(event){
+          $('#stage').load('../genres/genres_curd.php');
+       });
+    });
+    
+
+ </script>
   </head>
   <body>
     <div class="container-scroller">
       <!-- partial:../../partials/_navbar.html -->
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-          <a class="navbar-brand brand-logo" href="../../index.html"><img src="../../assets/images/logo.svg" alt="logo" /></a>
-          <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../assets/images/logo-mini.svg" alt="logo" /></a>
+          <a class="navbar-brand brand-logo" href="../../index.php"><img src="../../assets/images/logo.svg" alt="logo" /></a>
+          <a class="navbar-brand brand-logo-mini" href="../../index.php"><img src="../../assets/images/logo-mini.svg" alt="logo" /></a>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-stretch">
           <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -44,11 +87,11 @@
             <li class="nav-item nav-profile dropdown">
               <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                 <div class="nav-profile-img">
-                  <img src="../../assets/images/faces/face1.jpg" alt="image">
+                  <img src="../../assets/images/faces/face13.jpg" alt="image">
                   <span class="availability-status online"></span>
                 </div>
                 <div class="nav-profile-text">
-                  <p class="mb-1 text-black">David Greymaax</p>
+                  <p class="mb-1 text-black">Hoàng Bình Minh</p>
                 </div>
               </a>
               <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
@@ -176,76 +219,67 @@
             <li class="nav-item nav-profile">
               <a href="#" class="nav-link">
                 <div class="nav-profile-image">
-                  <img src="../../assets/images/faces/face1.jpg" alt="profile">
+                  <img src="../../assets/images/faces/face13.jpg" alt="profile">
                   <span class="login-status online"></span>
                   <!--change to offline or busy as needed-->
                 </div>
                 <div class="nav-profile-text d-flex flex-column">
-                  <span class="font-weight-bold mb-2">David Grey. H</span>
+                  <span class="font-weight-bold mb-2">Hoàng Bình Minh</span>
                   <span class="text-secondary text-small">Project Manager</span>
                 </div>
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../../index.html">
+              <a class="nav-link" href="../../index.php">
                 <span class="menu-title">Dashboard</span>
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
             </li>
+           
             <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <span class="menu-title">Basic UI Elements</span>
-                <i class="menu-arrow"></i>
-                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
-              </a>
-              <div class="collapse" id="ui-basic">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/buttons.html">Buttons</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/typography.html">Typography</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../../pages/icons/mdi.html">
-                <span class="menu-title">Icons</span>
-                <i class="mdi mdi-contacts menu-icon"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../../pages/forms/basic_elements.html">
-                <span class="menu-title">Forms</span>
-                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../../pages/charts/chartjs.html">
+              <a class="nav-link" href="../../pages/charts/chartjs.php">
                 <span class="menu-title">Charts</span>
                 <i class="mdi mdi-chart-bar menu-icon"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../../pages/tables/basic-table.html">
+              <a class="nav-link" href="../../pages/tables/basic-table.php">
                 <span class="menu-title">Tables</span>
                 <i class="mdi mdi-table-large menu-icon"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
-                <span class="menu-title">Sample Pages</span>
-                <i class="menu-arrow"></i>
-                <i class="mdi mdi-medical-bag menu-icon"></i>
-              </a>
-              <div class="collapse" id="general-pages">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="../../pages/samples/blank-page.html"> Blank Page </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="../../pages/samples/login.html"> Login </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="../../pages/samples/register.html"> Register </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="../../pages/samples/error-404.html"> 404 </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="../../pages/samples/error-500.html"> 500 </a></li>
-                </ul>
-              </div>
-            </li>
+            <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" aria-expanded="false"
+              aria-controls="general-pages">
+              <span class="menu-title">Quản lý</span>
+              <i class="menu-arrow"></i>
+              <i class="mdi mdi-medical-bag menu-icon"></i>
+            </a>
+            <div class="collapse" id="general-pages">
+              <ul class="nav flex-column sub-menu">
+                
+                <br>
+                <li class="nav-item"><input style="width:180px!important" type="button" class="btn btn-outline-info" id="stories" value="Truyện" /> </li>
+                <br>
+                <li class="nav-item"><input style="width:180px!important"  type="button" class="btn btn-outline-info" id="genres" value="Thể loại truyện" /></li>
+                <br>
+                <li class="nav-item"><input style="width:180px!important"  type="button" class="btn btn-outline-info" id="status" value="Trạng thái" /></li>
+                <br>
+                <li class="nav-item"><input style="width:180px!important"  type="button" class="btn btn-outline-info" id="news" value="tin tức"/> </li>
+                <br>
+                <li class="nav-item"><input style="width:180px!important"  type="button" class="btn btn-outline-info" id="category_news" value="Thể loại tin tức" /></li>
+                <br>
+                <li class="nav-item"><input style="width:180px!important"  type="button" class="btn btn-outline-info" id="author" value="Tác giả" /></li>
+                <br>
+                <li class="nav-item"><input style="width:180px!important"  type="button" class="btn btn-outline-info" id="users" value="Tài khoản" /> </li>
+                <br>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
+              </ul>
+            </div>
+          </li>
             <li class="nav-item sidebar-actions">
               <span class="nav-link">
                 <div class="border-bottom">
@@ -266,7 +300,7 @@
           </ul>
         </nav>
         <!-- partial -->
-        <div class="main-panel">
+        <div class="main-panel" id="stage">
           <div class="content-wrapper">
             <div class="page-header">
               <h3 class="page-title"> Basic Tables </h3>
@@ -716,12 +750,7 @@
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.html -->
-          <footer class="footer">
-            <div class="container-fluid d-flex justify-content-between">
-              <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright © bootstrapdash.com 2021</span>
-              <span class="float-none float-sm-end mt-1 mt-sm-0 text-end"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin template</a> from Bootstrapdash.com</span>
-            </div>
-          </footer>
+          
           <!-- partial -->
         </div>
         <!-- main-panel ends -->

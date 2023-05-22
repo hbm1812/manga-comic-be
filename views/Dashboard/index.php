@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Purple Admin</title>
+  <title>MangaComic Admin</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
@@ -114,11 +114,11 @@
             <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown"
               aria-expanded="false">
               <div class="nav-profile-img">
-                <img src="assets/images/faces/face1.jpg" alt="image">
+                <img src="assets/images/faces/face13.jpg" alt="image">
                 <span class="availability-status online"></span>
               </div>
               <div class="nav-profile-text">
-                <p class="mb-1 text-black">David Greymaax</p>
+                <p class="mb-1 text-black">Hoàng Bình Minh</p>
               </div>
             </a>
             <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
@@ -251,12 +251,12 @@
           <li class="nav-item nav-profile">
             <a href="#" class="nav-link">
               <div class="nav-profile-image">
-                <img src="assets/images/faces/face1.jpg" alt="profile">
+                <img src="assets/images/faces/face13.jpg" alt="profile">
                 <span class="login-status online"></span>
                 <!--change to offline or busy as needed-->
               </div>
               <div class="nav-profile-text d-flex flex-column">
-                <span class="font-weight-bold mb-2">David Grey. H</span>
+                <span class="font-weight-bold mb-2">Hoàng Bình Minh</span>
                 <span class="text-secondary text-small">Project Manager</span>
               </div>
               <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
@@ -268,40 +268,15 @@
               <i class="mdi mdi-home menu-icon"></i>
             </a>
           </li>
+          
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
-              aria-controls="ui-basic">
-              <span class="menu-title">Basic UI Elements</span>
-              <i class="menu-arrow"></i>
-              <i class="mdi mdi-crosshairs-gps menu-icon"></i>
-            </a>
-            <div class="collapse" id="ui-basic">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pages/icons/mdi.html">
-              <span class="menu-title">Icons</span>
-              <i class="mdi mdi-contacts menu-icon"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pages/forms/basic_elements.html">
-              <span class="menu-title">Forms</span>
-              <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pages/charts/chartjs.html">
+            <a class="nav-link" href="pages/charts/chartjs.php">
               <span class="menu-title">Charts</span>
               <i class="mdi mdi-chart-bar menu-icon"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/tables/basic-table.html">
+            <a class="nav-link" href="pages/tables/basic-table.php">
               <span class="menu-title">Tables</span>
               <i class="mdi mdi-table-large menu-icon"></i>
             </a>
@@ -363,6 +338,7 @@
       
           <div id="stage">
             
+          fdsa
           </div>
 
 
