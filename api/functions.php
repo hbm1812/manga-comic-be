@@ -25,7 +25,7 @@ class functions
     {
         $sql = '';
         foreach ($data as $key => $value) {
-            $sql .= ", $key = '" . $value . "'";
+            $sql .= ", `$key` = '" . $value . "'";
         }
         $sql = 'UPDATE ' . $table . ' SET ' . trim($sql, ',') . ' WHERE ' . $where;
         DB::execute($sql);
@@ -36,7 +36,7 @@ class functions
         $field_list = '';
         $value_list = '';
         foreach ($data as $key => $value) {
-            $field_list .= ",$key";
+            $field_list .= ",`$key`";
             $value_list .= ",'" . $value . "'";
         }
         $sql = 'INSERT INTO ' . $table . '(' . trim($field_list, ',') . ') VALUES (' . trim($value_list, ',') . ')';

@@ -35,11 +35,11 @@
         $data['keyword'] = $_POST['keyword'];
         $data['name'] = $_POST['name'];
         $data['name_romanji'] = $_POST['name_romanji'];
-        // $data['name_english'] = $_POST['name_english'];
+        $data['name_english'] = $_POST['name_english'];
         $data['name_japan'] = $_POST['name_japan'];
         $data['thumbnail'] = $_POST['thumbnail'];
         $data['background'] = $_POST['background'];
-        $data['descr'] = $_POST['descr'];
+        $data['desc'] = $_POST['desc'];
         $data['status_id'] = $_POST['status_id'];
         $data['author_id'] = $_POST['author_id'];
         $where='id='.$_POST['id'];
@@ -56,11 +56,11 @@
         $data['keyword'] = $_POST['keyword'];
         $data['name'] = $_POST['name'];
         $data['name_romanji'] = $_POST['name_romanji'];
-        // $data['name_english'] = $_POST['name_english'];
+        $data['name_english'] = $_POST['name_english'];
         $data['name_japan'] = $_POST['name_japan'];
         $data['thumbnail'] = $_POST['thumbnail'];
         $data['background'] = $_POST['background'];
-        $data['descr'] = $_POST['descr'];
+        $data['desc'] = $_POST['desc'];
         $data['status_id'] = $_POST['status_id'];
         $data['author_id'] = $_POST['author_id'];
      

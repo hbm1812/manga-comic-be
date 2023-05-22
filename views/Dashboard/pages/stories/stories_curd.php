@@ -19,7 +19,7 @@
                     $("#table_content").html("");
                     for (i = 0; i < data.length; i++) {
                         var dataAPI = data[i];
-                        var number = i+1;
+                        var number = i + 1;
                         var str = ` 
                             
 
@@ -120,6 +120,8 @@
                 }
             });
         })
+
+        
     </script>
 </head>
 
@@ -201,7 +203,7 @@
                         </div>
                         <div class="component_container">
                             <span>Mô tả</span>
-                            <textarea name="descr" id="descr"></textarea>
+                            <textarea name="desc" id="desc"></textarea>
                         </div>
 
                         <button type="button" class="btn btn-secondary" id="BtnExit">Thoát</button>
@@ -357,7 +359,7 @@
                         document.getElementById("name_japan").value = response[0].name_japan;
                         document.getElementById("thumbnail").value = response[0].thumbnail;
                         document.getElementById("background").value = response[0].background;
-                        document.getElementById("descr").value = response[0].descr;
+                        document.getElementById("desc").value = response[0].desc;
                         document.getElementById("status_id").value = response[0].status_id;
                         document.getElementById("author_id").value = response[0].author_id;
                     });
@@ -382,7 +384,7 @@
             data["name_japan"] = $("#name_japan").val();
             data["thumbnail"] = $("#thumbnail").val();
             data["background"] = $("#background").val();
-            data["descr"] = $("#descr").val();
+            data["desc"] = $("#desc").val();
             data["status_id"] = $("#status_id").val();
             data["author_id"] = $("#author_id").val();
 
@@ -397,7 +399,7 @@
                     name_japan: document.getElementById("name_japan").value,
                     thumbnail: document.getElementById("thumbnail").value,
                     background: document.getElementById("background").value,
-                    descr: document.getElementById("descr").value,
+                    desc: document.getElementById("desc").value,
                     status_id: document.getElementById("status_id").value,
                     author_id: document.getElementById("author_id").value,
                 },
@@ -460,13 +462,16 @@
             data["name_japan"] = $("#Addname_japan").val();
             data["thumbnail"] = $("#Addthumbnail").val();
             data["background"] = $("#Addbackground").val();
-            data["descr"] = $("#Adddescr").val();
+            data["desc"] = $("#Adddescr").val();
             data["status_id"] = $("#Addstatus_id").val();
             data["author_id"] = $("#Addauthor_id").val();
 
-
-            $.post(
-                "http://localhost/manga-comic-be/views/Dashboard/pages/stories/stories_api.php?method=4", {
+            console.log("run run")
+            $.ajax({
+                url: "http://localhost/manga-comic-be/views/Dashboard/pages/stories/stories_api.php?method=4",
+                method: "POST",
+                dataType: "json",
+                data: {
                     keyword: document.getElementById("Addkeyword").value,
                     name: document.getElementById("Addname").value,
                     name_romanji: document.getElementById("Addname_romanji").value,
@@ -474,11 +479,11 @@
                     name_japan: document.getElementById("Addname_japan").value,
                     thumbnail: document.getElementById("Addthumbnail").value,
                     background: document.getElementById("Addbackground").value,
-                    descr: document.getElementById("Adddescr").value,
+                    desc: document.getElementById("Adddescr").value,
                     status_id: document.getElementById("Addstatus_id").value,
                     author_id: document.getElementById("Addauthor_id").value,
                 },
-                function(data, status) {
+                success(response) {
                     modal.style.display = "none";
                     alert("Thêm mới thành công!");
                     $.ajax({
@@ -488,11 +493,40 @@
                         success(response) {
                             console.log(response);
                             $('#stage').load('./pages/stories/stories_curd.php');
-
                         }
 
                     });
-                });
+                }
+            });
+
+            // $.post(
+            //     "http://localhost/manga-comic-be/views/Dashboard/pages/stories/stories_api.php?method=4", {
+            //         keyword: document.getElementById("Addkeyword").value,
+            //         name: document.getElementById("Addname").value,
+            //         name_romanji: document.getElementById("Addname_romanji").value,
+            //         name_english: document.getElementById("Addname_english").value,
+            //         name_japan: document.getElementById("Addname_japan").value,
+            //         thumbnail: document.getElementById("Addthumbnail").value,
+            //         background: document.getElementById("Addbackground").value,
+            //         desc: document.getElementById("Adddescr").value,
+            //         status_id: document.getElementById("Addstatus_id").value,
+            //         author_id: document.getElementById("Addauthor_id").value,
+            //     },
+            //     function(data, status) {
+            //         modal.style.display = "none";
+            //         alert("Thêm mới thành công!");
+            //         $.ajax({
+            //             url: "http://localhost/manga-comic-be/views/Dashboard/pages/stories/stories_api.php?method=1",
+            //             method: "GET",
+            //             dataType: "json",
+            //             success(response) {
+            //                 console.log(response);
+            //                 $('#stage').load('./pages/stories/stories_curd.php');
+
+            //             }
+
+            //         });
+            //     });
 
         }
 
@@ -505,28 +539,28 @@
             //gửi đi "id" của dữ liệu mà mình cần lấy
             var data = {}
             data["id"] = $("#id").val();
-            var result =  confirm("Bạn có chắc là muốn xóa chứ?");
-			if(result ==true){
+            var result = confirm("Bạn có chắc là muốn xóa chứ?");
+            if (result == true) {
                 $.post(
-                "http://localhost/manga-comic-be/views/Dashboard/pages/stories/stories_api.php?method=5", {
-                    id: id
-                },
-                function(data, status) {
-                    alert("Xóa thành công!");
-                    $.ajax({
-                        url: "http://localhost/manga-comic-be/views/Dashboard/pages/stories/stories_api.php?method=1",
-                        method: "GET",
-                        dataType: "json",
-                        success(response) {
-                            console.log(response);
-                            $('#stage').load('./pages/stories/stories_curd.php');
+                    "http://localhost/manga-comic-be/views/Dashboard/pages/stories/stories_api.php?method=5", {
+                        id: id
+                    },
+                    function(data, status) {
+                        alert("Xóa thành công!");
+                        $.ajax({
+                            url: "http://localhost/manga-comic-be/views/Dashboard/pages/stories/stories_api.php?method=1",
+                            method: "GET",
+                            dataType: "json",
+                            success(response) {
+                                console.log(response);
+                                $('#stage').load('./pages/stories/stories_curd.php');
 
-                        }
+                            }
 
+                        });
                     });
-                });
-			}
-            
+            }
+
         }
 
 
@@ -558,13 +592,13 @@
 
         function chapter(id) {
             //lấy dữ liệu từ api về
-                 $('#stage').load('./pages/chapter/chapter_curd.php?id=' + id);
+            $('#stage').load('./pages/chapter/chapter_curd.php?id=' + id);
 
         }
 
         function genres(id) {
             //lấy dữ liệu từ api về
-                 $('#stage').load('./pages/story_genres/story_genres_curd.php?id=' + id);
+            $('#stage').load('./pages/story_genres/story_genres_curd.php?id=' + id);
 
         }
     </script>
