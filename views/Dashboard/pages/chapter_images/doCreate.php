@@ -7,6 +7,8 @@
     // chọn ảnh từ file và đẩy lên web
     const IMAGE_PATH = ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR;
     const CHAPTER_PATH =  "img" . DIRECTORY_SEPARATOR . "chapter" . DIRECTORY_SEPARATOR;
+    // const CHAPTER_PATH =  "localhost".DIRECTORY_SEPARATOR."manga-comic-be".DIRECTORY_SEPARATOR."views".DIRECTORY_SEPARATOR."Dashboard".DIRECTORY_SEPARATOR."img" . DIRECTORY_SEPARATOR . "chapter" . DIRECTORY_SEPARATOR;
+
     $formData = array_merge(array(), $_POST);
     $formData = array_merge($formData, $_FILES);
     echo $Addchapter_id;
@@ -20,7 +22,7 @@
 
     // Lưu dữ liệu
     $data = [        
-        "image" => $fileName ?? null,
+        "image" => "http://localhost/manga-comic-be/views/Dashboard/".$fileName ?? null,
         "Addchapter_id" => $Addchapter_id,
 
     ];

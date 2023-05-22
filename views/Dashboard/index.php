@@ -338,7 +338,7 @@
       
           <div id="stage">
             
-          fdsa
+          CHÀO MỪNG !
           </div>
 
 
