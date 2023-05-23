@@ -43,5 +43,48 @@
             return $result;
         }
         
+        static public function getLikerList($data = []) {
+            $sql = "SELECT * FROM comment_like WHERE comment_id = :comment_id";
+
+            $result = DB::execute($sql, $data);
+
+            return $result;
+        }
+        
+        static public function like($data = []) {
+            $sql = "SELECT * FROM comment_like WHERE comment_id = :comment_id AND liker_id = :user_id";
+            $result = DB::execute($sql, $data);
+
+            if (!empty($result)) {
+                return false;
+            } 
+
+            $sql = "INSERT INTO comment_like(liker_id, comment_id) VALUES (:user_id, :comment_id)";
+            try {
+                DB::execute($sql, $data);
+            } catch (\Throwable $th) {
+                return false;
+            }
+            
+            return true;
+        }
+
+        static public function unlike($data = []) {
+            $sql = "SELECT * FROM comment_like WHERE comment_id = :comment_id AND liker_id = :user_id";
+            $result = DB::execute($sql, $data);
+
+            if (empty($result)) {
+                return false;
+            } 
+
+            $sql = "DELETE FROM comment_like WHERE liker_id = :user_id AND comment_id = :comment_id";
+            try {
+                DB::execute($sql, $data);
+            } catch (\Throwable $th) {
+                return false;
+            }
+            
+            return true;
+        }
     }
 ?>

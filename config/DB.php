@@ -38,11 +38,10 @@ class DB
         $statement->setFetchMode(PDO::FETCH_ASSOC);
 
         try {
-            //code...
             $statement->execute($data);
         } catch (\Throwable $th) {
             $statement->debugDumpParams();
-            //throw $th;
+            throw $th;
         }
         $result =[];
 
