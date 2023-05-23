@@ -28,7 +28,7 @@ class Stories
             WHERE `status`.`id` = `stories`.`status_id` AND `stories`.`id` = `chapter`.`story_id` 
             GROUP BY `chapter`.`keyword` 
             ORDER BY `stories`.`id` ASC
-            LIMIT 5
+            LIMIT 3
         ";
         $result = DB::execute($sql);
 

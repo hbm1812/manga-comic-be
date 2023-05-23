@@ -282,7 +282,7 @@
                         <div class="component_container">
                             <span>Trạng thái</span>
                             <select name="Addstatus_id" id="Addstatus_id">
-                                <option value="1">Đang tiếng hành</option>
+                                <option value="1">Đang tiến hành</option>
                                 <option value="2">Sắp chiếu</option>
                                 <option value="3">Hoàn thành</option>
                             </select>
