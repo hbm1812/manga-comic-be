@@ -350,3 +350,13 @@ CREATE TABLE `comment`  (
   FOREIGN KEY (`story_id`) REFERENCES `stories`(`id`)
 );
 
+-- comment_liker
+CREATE TABLE `comment_like`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `liker_id` int(10) UNSIGNED,
+  `comment_id` int(10) UNSIGNED,
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (`comment_id`) REFERENCES `comment`(`id`),
+  FOREIGN KEY (`liker_id`) REFERENCES `users`(`id`)
+);
