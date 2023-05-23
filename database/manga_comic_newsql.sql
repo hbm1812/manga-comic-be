@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 22, 2023 lúc 05:05 PM
+-- Thời gian đã tạo: Th5 23, 2023 lúc 08:44 AM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 7.4.29
 
@@ -43,13 +43,14 @@ CREATE TABLE `author` (
 --
 
 INSERT INTO `author` (`id`, `keyword`, `name`, `alias`, `avatar`, `descr`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'not found name', 'Asato Asato', 'https://cdn.anime-planet.com/people/primary/asato-asato-1-190x267.jpg?t=1625790596', 'Asato Asato (安里アサト, born 1985) is a female Japanese novelist. The pen name Asato Asato is a combination of her real name (Toru Asakura) and eighty-eight.', '2023-05-19 03:02:18', NULL),
+(1, 'Asato-Asato', 'Asato Asato', 'Asato Asato', 'https://cdn.anime-planet.com/people/primary/asato-asato-1-190x267.jpg?t=1625790596', 'Asato Asato (安里アサト, born 1985) is a female Japanese novelist. The pen name Asato Asato is a combination of her real name (Toru Asakura) and eighty-eight.', '2023-05-19 03:02:18', '2023-05-22 16:42:09'),
 (2, NULL, 'Shinichi Fukuda', NULL, 'https://media.zenfs.com/es/levelup_525/42fac2aa5fdd822efc4e64f6e2964a9f', NULL, '2023-05-19 03:02:18', NULL),
 (3, '', 'Code:000', 'Code:000', 'https://upload.wikimedia.org/wikipedia/en/d/dc/DARLING_in_the_FRANXX%2C_second_key_visual.jpg?20200726083303', '', '2023-05-19 03:02:18', '2023-05-22 07:45:45'),
 (4, 'Baba-Okina ', 'Baba Okina', 'Baba Okina ', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs5HLt-KIxowCPro95jchI2zdI57U8Y8eTAg&usqp=CAU', 'Chưa có thông tin', '2023-05-19 03:18:44', NULL),
 (5, ' Sōichirō-Yamamoto', ' Sōichirō Yamamoto', ' Sōichirō Yamamoto', 'https://tuvanduhocmap.com/wp-content/uploads/2021/08/Yamamoto-Souichirou-Hoa-si-truyen-tranh-Nhat-Ban-noi-tieng.jpg', '', '2023-05-22 07:48:46', NULL),
 (6, 'Haruba-Negi.', 'Haruba Negi', 'Haruba Negi.', '', 'Sinh ngày 27 tháng 7 năm 1991 ở Aichi. là một tác giả manga Nhật Bản. Anh tốt nghiệp bằng Trident College of Design năm 2013. Bắt đầu sự nghiệp với tác phẩm đầu tay Coward Cross World được xuất bản trên tạp chí Kodansha năm 2013. Sau đó cùng với Hirose Sh', '2023-05-22 08:20:20', NULL),
-(7, 'Yuusuke-Shiba', 'Yuusuke Shiba', 'Yuusuke Shiba', '', '', '2023-05-22 14:47:14', NULL);
+(7, 'Yuusuke-Shiba', 'Yuusuke Shiba', 'Yuusuke Shiba', '', '', '2023-05-22 14:47:14', NULL),
+(8, ' Miyama-Hugin', ' Miyama Hugin', ' Miyama Hugin', '', 'Overlord (オーバーロード Ōbārōdo?) là một bộ light novel Nhật Bản được viết bởi Maruyama Kugane và minh họa bởi so-bin. Nó bắt đầu được đăng nhiều kỳ trực tuyến vào năm 2010, trước khi được hãng Enterbrain mua lại. Mười sáu tập đã được xuất bản kể từ ngày 30 thá', '2023-05-22 16:43:11', NULL);
 
 -- --------------------------------------------------------
 
@@ -105,7 +106,20 @@ INSERT INTO `chapter` (`id`, `keyword`, `name`, `subname`, `story_id`, `country`
 (5, 'kumo-desu-ga-nani-ka', 'kumo desu ga nani ka ?, Chapter 1', NULL, 4, 'JP', 'Vi', '2023-05-19 03:30:18', '2023-05-22 08:02:00'),
 (6, 'Soredemo-Ayumu-wa-Yosetekuru', 'Soredemo Ayumu wa Yosetekuru, chapter 1', NULL, 5, 'JP', 'Vi', '2023-05-22 08:02:47', NULL),
 (7, 'Gotōbun-no-Hanayome ', 'Gotōbun no Hanayome, chapter 1', NULL, 6, 'JP', 'Vi', '2023-05-22 08:21:52', NULL),
-(8, 'SLIME-TAOSHITE-300-NEN', 'SLIME TAOSHITE 300-NEN, chapter 1', NULL, 7, 'JP', 'Vi', '2023-05-22 14:51:06', NULL);
+(8, 'SLIME-TAOSHITE-300-NEN', 'SLIME TAOSHITE 300-NEN, chapter 1', NULL, 7, 'JP', 'Vi', '2023-05-22 14:51:06', NULL),
+(9, 'kumo-desu-ga-nani-ka', 'kumo desu ga, nani ka?, chapter 2', NULL, 4, 'JP', 'Vi', '2023-05-22 15:44:53', NULL),
+(10, 'kumo-desu-ga-nani-ka', 'kumo desu ga, nani ka?, chapter 3', NULL, 4, 'JP', 'Vi', '2023-05-22 16:16:42', NULL),
+(11, 'kumo-desu-ga-nani-ka', 'kumo desu ga, nani ka?, chapter 1', NULL, 4, 'JP', 'JP', '2023-05-22 16:21:17', NULL),
+(12, 'kumo-desu-ga-nani-ka', 'kumo desu ga, nani ka? chapter 1', NULL, 4, 'JP', 'EN', '2023-05-22 16:23:30', NULL),
+(13, 'kumo-desu-ga-nani-ka', 'kumo desu ga, nani ka?, chapter 2', NULL, 4, 'JP', 'EN', '2023-05-22 16:25:13', NULL),
+(14, 'kumo-desu-ga-nani-ka', 'kumo desu ga, nani ka?, chapter 4', NULL, 4, 'JP', 'Vi', '2023-05-23 02:26:45', NULL),
+(15, 'kumo-desu-ga-nani-ka', 'kumo desu ga, nani ka? chapter 5', NULL, 4, 'JP', 'Vi', '2023-05-23 02:29:28', NULL),
+(16, 'kumo-desu-ga-nani-ka', 'kumo desu ga, nani ka?, chapter 6', NULL, 4, 'JP', 'Vi', '2023-05-23 02:33:46', NULL),
+(17, 'kumo-desu-ga-nani-ka', 'kumo desu ga, nani ka?, chapter 7', NULL, 4, 'JP', 'Vi', '2023-05-23 02:36:17', NULL),
+(18, 'kumo-desu-ga-nani-ka', 'kumo desu ga, nani ka?, chapter 8', NULL, 4, 'JP', 'Vi', '2023-05-23 02:38:50', NULL),
+(19, 'kumo-desu-ga-nani-ka', 'kumo desu ga, nani ka?, chapter 9', NULL, 4, 'JP', 'Vi', '2023-05-23 02:40:19', NULL),
+(20, 'kumo-desu-ga-nani-ka', 'kumo desu ga, nani ka?, chapter 10', NULL, 4, 'JP', 'Vi', '2023-05-23 02:44:44', NULL),
+(21, 'kumo-desu-ga-nani-ka', 'kumo desu ga, nani ka?, chapter 11', NULL, 4, 'JP', 'Vi', '2023-05-23 02:45:41', NULL);
 
 -- --------------------------------------------------------
 
@@ -190,7 +204,59 @@ INSERT INTO `chapter_images` (`id`, `thumbnail`, `chapter_id`, `created_at`, `up
 (69, 'https://i115.ntcdntempv3.com/data/images/15678/310117/009-fix.jpg?data=net', 7, '2023-05-22 08:24:04', NULL),
 (71, 'https://i115.ntcdntempv3.com/data/images/17542/357502/004-fix.jpg?data=net', 8, '2023-05-22 14:51:19', NULL),
 (72, 'https://i115.ntcdntempv3.com/data/images/17542/357502/005-fix.jpg?data=net', 8, '2023-05-22 14:51:26', NULL),
-(73, 'https://i115.ntcdntempv3.com/data/images/17542/357502/006-fix.jpg?data=net', 8, '2023-05-22 14:51:33', NULL);
+(73, 'https://i115.ntcdntempv3.com/data/images/17542/357502/006-fix.jpg?data=net', 8, '2023-05-22 14:51:33', NULL),
+(87, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646b93bb0c2a5.jpg', 9, '2023-05-22 16:09:31', NULL),
+(88, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646b93c6802e9.jpg', 9, '2023-05-22 16:09:42', NULL),
+(89, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646b93d285320.jpg', 9, '2023-05-22 16:09:54', NULL),
+(91, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646b941ba0e4d.jpg', 9, '2023-05-22 16:11:07', NULL),
+(92, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646b942652f51.jpg', 9, '2023-05-22 16:11:18', NULL),
+(93, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646b94309fe7d.jpg', 9, '2023-05-22 16:11:28', NULL),
+(94, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646b95c282fbf.jpg', 10, '2023-05-22 16:18:10', NULL),
+(95, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646b95cdbab5c.jpg', 10, '2023-05-22 16:18:21', NULL),
+(96, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646b95dea3081.jpg', 10, '2023-05-22 16:18:38', NULL),
+(97, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646b95f6b9e0f.jpg', 10, '2023-05-22 16:19:02', NULL),
+(98, 'https://cdn.readkakegurui.com/file/cdnpog/kumo-desu-ga-nani-ka/chapter-0/1.jpg', 11, '2023-05-22 16:21:43', '2023-05-22 16:22:51'),
+(99, 'https://cdn.readkakegurui.com/file/cdnpog/kumo-desu-ga-nani-ka/chapter-0/1.jpg', 12, '2023-05-22 16:23:40', NULL),
+(100, 'https://cdn.readkakegurui.com/file/cdnpog/kumo-desu-ga-nani-ka/chapter-0/2.jpg', 12, '2023-05-22 16:23:49', NULL),
+(101, 'https://cdn.readkakegurui.com/file/cdnpog/kumo-desu-ga-nani-ka/chapter-0/3.jpg', 12, '2023-05-22 16:23:56', NULL),
+(102, 'https://cdn.readkakegurui.com/file/cdnpog/kumo-desu-ga-nani-ka/chapter-0/4.jpg', 12, '2023-05-22 16:24:04', NULL),
+(103, 'https://cdn.readkakegurui.com/file/cdnpog/kumo-desu-ga-nani-ka/chapter-0/5.jpg', 12, '2023-05-22 16:24:15', NULL),
+(104, 'https://cdn.readkakegurui.com/file/cdnpog/kumo-desu-ga-nani-ka/chapter-0/6.jpg', 12, '2023-05-22 16:24:23', NULL),
+(105, 'https://cdn.readkakegurui.com/file/cdnpog/kumo-desu-ga-nani-ka/chapter-0/7.jpg', 12, '2023-05-22 16:24:33', NULL),
+(106, 'https://cdn.readkakegurui.com/file/cdnpog/kumo-desu-ga-nani-ka/chapter-2/1.jpg', 13, '2023-05-22 16:25:27', NULL),
+(107, 'https://cdn.readkakegurui.com/file/cdnpog/kumo-desu-ga-nani-ka/chapter-2/2.jpg', 13, '2023-05-22 16:25:34', NULL),
+(108, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646c24ac5e5e5.jpg', 14, '2023-05-23 02:27:56', NULL),
+(109, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646c24b753d56.jpg', 14, '2023-05-23 02:28:07', NULL),
+(110, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646c24c1b0356.jpg', 14, '2023-05-23 02:28:17', NULL),
+(111, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646c24d1bff97.jpg', 14, '2023-05-23 02:28:33', NULL),
+(112, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646c24dee565e.jpg', 14, '2023-05-23 02:28:46', NULL),
+(113, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646c24e8bd093.jpg', 14, '2023-05-23 02:28:56', NULL),
+(114, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646c2533b0ba7.jpg', 15, '2023-05-23 02:30:11', NULL),
+(115, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646c253d5f1ef.jpg', 15, '2023-05-23 02:30:21', NULL),
+(116, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646c2548c5541.jpg', 15, '2023-05-23 02:30:32', NULL),
+(117, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646c2557e6300.jpg', 15, '2023-05-23 02:30:47', NULL),
+(118, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646c262e9d8ff.jpg', 16, '2023-05-23 02:34:22', NULL),
+(119, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646c264126909.jpg', 16, '2023-05-23 02:34:41', NULL),
+(120, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646c264c1845e.jpg', 16, '2023-05-23 02:34:52', NULL),
+(121, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646c265907fb9.jpg', 16, '2023-05-23 02:35:05', NULL),
+(122, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646c26cf4f81d.jpg', 17, '2023-05-23 02:37:03', NULL),
+(123, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646c26d83f3bb.jpg', 17, '2023-05-23 02:37:12', NULL),
+(124, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646c26eaa0db9.jpg', 17, '2023-05-23 02:37:30', NULL),
+(125, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646c26f47d8e0.jpg', 17, '2023-05-23 02:37:40', NULL),
+(126, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646c276316752.jpg', 18, '2023-05-23 02:39:31', NULL),
+(127, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646c276d3db4a.jpg', 18, '2023-05-23 02:39:41', NULL),
+(128, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646c2778857fc.jpg', 18, '2023-05-23 02:39:52', NULL),
+(129, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646c27bbb3790.jpg', 19, '2023-05-23 02:40:59', NULL),
+(130, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646c27c574cef.jpg', 19, '2023-05-23 02:41:09', NULL),
+(131, 'http://localhost/manga-comic-be/views/Dashboard/img\\chapter\\646c27e84d5ef.jpg', 19, '2023-05-23 02:41:44', NULL),
+(132, 'https://i221.ntcdntempv3.com/data/images/11658/269500/001.jpg?data=net', 20, '2023-05-23 02:44:53', NULL),
+(133, 'https://i221.ntcdntempv3.com/data/images/11658/269500/002.jpg?data=net', 20, '2023-05-23 02:45:00', NULL),
+(134, 'https://i221.ntcdntempv3.com/data/images/11658/269500/003.jpg?data=net', 20, '2023-05-23 02:45:08', NULL),
+(135, 'https://i221.ntcdntempv3.com/data/images/11658/269500/004.jpg?data=net', 20, '2023-05-23 02:45:23', NULL),
+(136, 'https://i221.ntcdntempv3.com/data/images/11658/277433/002.jpg?data=net', 21, '2023-05-23 02:45:58', NULL),
+(137, 'https://i221.ntcdntempv3.com/data/images/11658/277433/003.jpg?data=net', 21, '2023-05-23 02:46:06', NULL),
+(138, 'https://i221.ntcdntempv3.com/data/images/11658/277433/004.jpg?data=net', 21, '2023-05-23 02:46:17', NULL),
+(139, 'https://i221.ntcdntempv3.com/data/images/11658/277433/005.jpg?data=net', 21, '2023-05-23 02:46:26', NULL);
 
 -- --------------------------------------------------------
 
@@ -267,7 +333,8 @@ CREATE TABLE `favorite` (
 --
 
 INSERT INTO `favorite` (`id`, `user_id`, `stories_id`, `created_at`, `updated_at`) VALUES
-(1, 2, 2, '2023-05-22 14:41:36', NULL);
+(1, 2, 2, '2023-05-22 14:41:36', NULL),
+(2, 2, 4, '2023-05-22 16:25:51', NULL);
 
 -- --------------------------------------------------------
 
@@ -427,7 +494,7 @@ INSERT INTO `stories` (`id`, `keyword`, `name`, `name_romanji`, `name_english`, 
 (4, 'kumo-desu-ga-nani-ka', 'Tôi là nhện đấy, có sao không?', 'Kumo desu ga, nani ka?', NULL, '蜘蛛ですが、なにか？', NULL, 'https://wallpapercave.com/dwp1x/wp8632188.jpg', 'https://wallpapercave.com/dwp1x/wp8443145.jpg', 'Tại một thế giới nơi dũng giả và quỷ vương chiến đấu, ma pháp khốc liệt của dũng giả và quỷ vương khiến một lớp học nơi thế giới khác phát nổ. Những học sinh trong lớp học bị chết vì vụ nổ ấy chuyển sinh sang thế giới đó. Nhân vật chính, một học sinh ngồi ở cuối lớp bị tái sinh thành một con quái vật nhện. Thế nhưng với ý chí mạnh mẽ bất thường, cô đã dần dần chấp nhận và học cách thích nghi hơn với thế giới.', 2, 4, 0, 0, '2023-05-19 03:21:25', '2023-05-20 15:17:37'),
 (5, 'Soredemo-Ayumu-wa-Yosetekuru', 'Dù Vậy Thì Ayumu Vẫn Sẽ Tiếp Cận', 'Soredemo Ayumu wa Yosetekuru', NULL, 'それでも歩は寄せてくる', NULL, 'https://i.pinimg.com/236x/4e/3d/c6/4e3dc6a45b7f1752031ae234e767b16a.jpg', 'https://m.media-amazon.com/images/I/719Eq93Ic3L._AC_SY450_.jpg', 'Một ý thích bất chợt, Ayumu Tanaka năm nhất rời Câu lạc bộ Kendo để gia nhập Câu lạc bộ Shogi bất hợp pháp. Urushi Yaotome, chủ tịch câu lạc bộ và là một bậc thầy về shogi, rất vui mừng khi cuối cùng cũng có một người bạn chơi cùng. Là đàn anh của Ayumu, Urushi cố gắng trở thành người cố vấn shogi và hình mẫu học sinh của mình. Tuy nhiên, quá thường xuyên, cô ấy thấy mình đỏ mặt vì xấu hổ! Khuôn mặt như đá và trung thực, Ayumu không thấy vấn đề gì khi gọi Urushi là \"dễ thương\". Mặc dù Ayumu thích cô ấy, nhưng anh ấy không thể thú nhận và tự hứa với bản thân sẽ đánh bại cô ấy trong một trò chơi shogi.Thông qua cuộc sống học đường và các trò chơi shogi, hai học sinh đã có nhiều cuộc phiêu lưu vui nhộn và ấm lòng. Ayumu tận hưởng từng giây với Urushi, nhưng anh vẫn còn lâu mới đánh bại cô trong shogi. Với những gì đã cam kết với bản thân, liệu Ayumu có bao giờ có cơ hội để thổ lộ tình cảm của mình với Urushi?', 2, 5, 0, 0, '2023-05-22 07:45:26', '2023-05-22 08:07:25'),
 (6, 'Gotōbun-no-Hanayome', 'Nhà có 5 nàng dâu', 'Gotōbun no Hanayome', NULL, '五等分の花嫁', NULL, 'https://i.pinimg.com/236x/c1/3a/55/c13a55e3b7fc86796129f9db6efe8df6.jpg', 'https://images2.alphacoders.com/131/thumbbig-1315536.webp', 'Go-Toubun no Hanayome là câu chuyện kể về một \"hot boy nhà nghèo\" mang tên Futaro Uesugi và đang học năm 2 ở cao trung. Để trang trải cuộc sống, cậu quyết định làm gia sư cho một gia đình giàu có. Tuy nhiên, người mà cậu dạy lại chính là bạn học của mình. Và đó là con gái nhưng không chỉ một mà là đến năm cô gái. Nhiệm vụ đầu tiên của cậu là phải \"dạy dỗ\" lại tất cả cô nàng này... Mỗi ngày là một sự kiện!! Liệu anh chàng này phải làm như thế nào đây?', 1, 6, 0, 0, '2023-05-22 08:18:54', '2023-05-22 08:20:38'),
-(7, 'SLIME-TAOSHITE-300-NEN', 'Diệt slime suốt 300 năm, tôi lv max lúc nào không hay', 'SLIME TAOSHITE 300-NEN, SHIRANAI UCHI NI LEVEL MAX NI NATTESHIMATTA', NULL, 'スライム倒して300年、知らないうちにレベルMAXになってました', NULL, 'https://st.nettruyenplus.com/data/comics/134/slime-taoshite-300-nen-shiranai-uchi-ni-6907.jpg', 'https://wallpapercave.com/dwp1x/wp9273743.jpg', 'Azusa Aizawa, một con nghiện làm việc, qua đời do quá tải ngay ở trên công ti. Cổ được tái sinh trở thành một pháp sư ở một thế giới khác, một pháp sư bất tử với ngoại hình luôn luôn ở độ tuổi 17. Hằng ngày cổ được sống một cuộc sống nhẹ nhàng, bình lặng, với thú vui tao nhã là đập Slime kiếm tiền. Tuy vậy, sau 300 năm đằng đẵng farm Slime, cổ đã trở thành pháp sư mạnh nhất thế giới khi đã đạt level MAX mà không hay.', 2, 7, 0, 0, '2023-05-22 14:49:13', NULL);
+(7, 'slime-taoshite-300-nen', 'Diệt slime suốt 300 năm, tôi lv max lúc nào không hay', 'Suraimu taoshite sanbyaku nen, shiranai uchi ni Reberu Makkusu ni nattemashita', NULL, 'スライム倒して300年、知らないうちにレベルMAXになってました', NULL, 'https://st.nettruyenplus.com/data/comics/134/slime-taoshite-300-nen-shiranai-uchi-ni-6907.jpg', 'https://wallpapercave.com/dwp1x/wp9273743.jpg', 'Azusa Aizawa, một con nghiện làm việc, qua đời do quá tải ngay ở trên công ti. Cổ được tái sinh trở thành một pháp sư ở một thế giới khác, một pháp sư bất tử với ngoại hình luôn luôn ở độ tuổi 17. Hằng ngày cổ được sống một cuộc sống nhẹ nhàng, bình lặng, với thú vui tao nhã là đập Slime kiếm tiền. Tuy vậy, sau 300 năm đằng đẵng farm Slime, cổ đã trở thành pháp sư mạnh nhất thế giới khi đã đạt level MAX mà không hay.', 2, 7, 0, 0, '2023-05-22 14:49:13', '2023-05-22 15:44:04');
 
 -- --------------------------------------------------------
 
@@ -538,7 +605,13 @@ INSERT INTO `view` (`id`, `user_id`, `stories_id`, `created_at`, `updated_at`) V
 (13, 1, 6, '2023-05-22 14:37:15', NULL),
 (14, 2, 2, '2023-05-22 14:41:18', NULL),
 (15, 2, 2, '2023-05-22 14:42:21', NULL),
-(16, 2, 7, '2023-05-22 15:02:06', NULL);
+(16, 2, 7, '2023-05-22 15:02:06', NULL),
+(17, 2, 4, '2023-05-22 16:07:24', NULL),
+(18, 2, 4, '2023-05-22 16:09:10', NULL),
+(19, 2, 4, '2023-05-22 16:20:31', NULL),
+(20, 2, 4, '2023-05-22 16:21:58', NULL),
+(21, 2, 4, '2023-05-22 16:25:59', NULL),
+(22, 2, 4, '2023-05-23 02:25:19', NULL);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -658,7 +731,7 @@ ALTER TABLE `view`
 -- AUTO_INCREMENT cho bảng `author`
 --
 ALTER TABLE `author`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `category_news`
@@ -670,13 +743,13 @@ ALTER TABLE `category_news`
 -- AUTO_INCREMENT cho bảng `chapter`
 --
 ALTER TABLE `chapter`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT cho bảng `chapter_images`
 --
 ALTER TABLE `chapter_images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
 
 --
 -- AUTO_INCREMENT cho bảng `character`
@@ -694,7 +767,7 @@ ALTER TABLE `comment`
 -- AUTO_INCREMENT cho bảng `favorite`
 --
 ALTER TABLE `favorite`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `genres`
@@ -742,7 +815,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `view`
 --
 ALTER TABLE `view`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

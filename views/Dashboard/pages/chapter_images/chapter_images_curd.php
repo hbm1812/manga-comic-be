@@ -212,17 +212,17 @@ $chapter_id_get = $_GET['id'];
                 <div class="modal_content">
                     <!--content ben trai-->
                     <div class="content_left">
-
-                        <div class="item">
-                            <label for="image">Ảnh :</label>
-                            <label for="image" class="btnChooseFile">
-                                <i class="fa-solid fa-image" style="margin-right: 5px"></i>
-                                Chọn một file ảnh
-                            </label>
-                            <input type="file" name="image" id="image" hidden>
+                        <div class="component_container">
+                            <div class="item">
+                                <label for="image">Ảnh :</label>
+                                <label for="image" class="btnChooseFile">
+                                    <i class="fa-solid fa-image" style="margin-right: 5px"></i>
+                                    Chọn một file ảnh
+                                </label>
+                                <input type="file" name="image" id="image" hidden>
+                            </div>
+                            <image class="imagePreview" src="" max-width="100%" height="auto" />
                         </div>
-                        <image class="imagePreview" src="" max-width="100%" height="auto" />
-
                     </div>
 
 

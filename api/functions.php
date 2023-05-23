@@ -61,4 +61,41 @@ class functions
         $result = DB::execute($sql);
         return $result;
     }
+
+    function delete_story_genres($table, $story_id)
+    {
+        $sql = 'DELETE FROM' .$table.' WHERE story_id=' . $story_id;
+        DB::execute($sql);
+    }
+    function delete_chapter($table, $story_id)
+    {
+        $sql = 'DELETE FROM' .$table.' WHERE story_id=' . $story_id;
+        DB::execute($sql);
+    }
+
+    function delete_chapter_images($table, $select_id_chapter)
+    {
+        $sql = 'DELETE FROM chapter_images'.' WHERE chapter.id =' . $select_id_chapter;
+        DB::execute($sql);
+    }
+
+    public function select_id_chapter($table, $story_id)
+    {
+        $sql = 'SELECT id FROM ' . $table . ' WHERE story_id=' . $story_id;
+        $result = DB::execute($sql);
+        return $result;
+    }
+
+    function delete_story_views($table, $story_id)
+    {
+        $sql = 'DELETE FROM' .$table.' WHERE story_id=' . $story_id;
+        DB::execute($sql);
+    }
+    function delete_favorite($table, $story_id)
+    {
+        $sql = 'DELETE FROM' .$table.' WHERE story_id=' . $story_id;
+        DB::execute($sql);
+    }
+
+
 }
