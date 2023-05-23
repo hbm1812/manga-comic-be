@@ -17,7 +17,7 @@ if (empty($_POST['user_id'])) {
         'message' => "Not logged in"
     ];
     
-    echo json_encode($create);
+    echo json_encode($response);
     die;
 }
 if(empty($_POST['comment_id'])) {
@@ -26,7 +26,7 @@ if(empty($_POST['comment_id'])) {
         'message' => "Comment ID not provided"
     ];
 
-    echo json_encode($create);
+    echo json_encode($response);
     die;
 }
 

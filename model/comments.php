@@ -44,7 +44,7 @@
         }
         
         static public function getLikerList($data = []) {
-            $sql = "SELECT * FROM comment_like WHERE comment_id = :comment_id";
+            $sql = "SELECT * FROM comment_like";
 
             $result = DB::execute($sql, $data);
 

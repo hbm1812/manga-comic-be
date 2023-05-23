@@ -1,4 +1,5 @@
 -- comment
+DROP TABLE IF EXISTS `comment_like`;
 DROP TABLE IF EXISTS `comment`;
 -- manga
 -- DROP TABLE IF EXISTS `satisfied_story`;
