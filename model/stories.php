@@ -165,6 +165,13 @@ class Stories
         return $result;
     }
 
+    static public function removeFavorites($data = [])
+    {
+        $sql = "DELETE FROM `favorite` WHERE `user_id`=:user_id AND `stories_id`=:stories_id";
+        $result = DB::execute($sql, $data);
+        return $result;
+    }
+
     // get stories genres 
     static public function getStoryGenres($data = [])
     {
