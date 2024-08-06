@@ -1,5 +1,8 @@
 <?php
+
 $chapter_id_get = $_GET['id'];
+
+
 
 
 ?>
@@ -25,7 +28,7 @@ $chapter_id_get = $_GET['id'];
                     $("#table_content").html("");
                     for (i = 0; i < data.length; i++) {
                         var dataAPI = data[i];
-                        var number = i+1;
+                        var number = i + 1;
                         var str = ` 
                             
 
@@ -74,11 +77,26 @@ $chapter_id_get = $_GET['id'];
             });
         })
     </script>
+    <style>
+        .item label.btnChooseFile {
+            color: #fff;
+            height: 40px;
+            width: 250px;
+            background-color: #f5af09;
+            font-size: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
     <h3>DANH SÁCH IMAGES CỦA CHAPTER:</h3>
-    <button type="button" class="btn btn-secondary" id="BtnAdd">Thêm mới</button>
+    <button type="button" class="btn btn-secondary" id="BtnAdd">Thêm mới bằng link</button>
+    <button type="button" class="btn btn-secondary" id="BtnAddUpload">Thêm mới Upload file ảnh</button>
     <div class="content" id="table_content">
 
 
@@ -134,12 +152,6 @@ $chapter_id_get = $_GET['id'];
     </div>
 
 
-
-
-
-
-
-
     <!-- The Modal Them moi -->
     <div id="myModalAddNews" class="modal">
 
@@ -177,13 +189,66 @@ $chapter_id_get = $_GET['id'];
                         <button type="button" class="btn btn-success" id="BtnAddNew">Thêm mới</button>
 
                     </div>
-
                 </div>
 
             </form>
         </div>
 
     </div>
+
+
+
+
+
+    <!-- The Modal Them moi bang upload -->
+    <div id="myModalAddNewsUpload" class="modal">
+
+        <!-- Nội dung form modal -->
+        <div class="modal-content">
+            <form action="../../../../../manga-comic-be/views/Dashboard/pages/chapter_images/doCreate.php?id=<?php echo $chapter_id_get ?>" method="POST" enctype="multipart/form-data">
+                <span class="Addclose">&times;</span>
+                <h2>THÊM MỚI CHAPTER</h2>
+
+                <div class="modal_content">
+                    <!--content ben trai-->
+                    <div class="content_left">
+                        <div class="component_container">
+                            <div class="item">
+                                <label for="image">Ảnh :</label>
+                                <label for="image" class="btnChooseFile">
+                                    <i class="fa-solid fa-image" style="margin-right: 5px"></i>
+                                    Chọn một file ảnh
+                                </label>
+                                <input type="file" name="image" id="image" hidden>
+                            </div>
+                            <image class="imagePreview" src="" max-width="100%" height="auto" />
+                        </div>
+                    </div>
+
+
+                    <!--content ben phai-->
+                    <div class="content_right">
+                        <div class="component_container">
+                            <span>ID</span>
+                            <input type="text" id="Addchapter_id" name="Addchapter_id" disabled value="<?php echo $chapter_id_get ?>">
+                        </div>
+
+
+                        <br>
+                        <br>
+                        <br>
+
+                        <button type="button" class="btn btn-secondary" id="BtnAddUploadExit">Thoát</button>
+                        <input type="submit" class="btn btn-success" value="Tạo mới">
+
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
 
 
 
@@ -198,6 +263,7 @@ $chapter_id_get = $_GET['id'];
         // lấy phần Modal
         var modal = document.getElementById('myModal');
         var modal_add_news = document.getElementById('myModalAddNews');
+        var myModalAddNewsUpload = document.getElementById('myModalAddNewsUpload');
 
         var BtnAdd = document.getElementById("BtnAdd");
 
@@ -212,6 +278,7 @@ $chapter_id_get = $_GET['id'];
 
         var BtnUpdate = document.getElementById("BtnUpdate");
         var BtnAddNew = document.getElementById("BtnAddNew");
+
 
 
         //link api
@@ -284,6 +351,42 @@ $chapter_id_get = $_GET['id'];
 
 
 
+        //upload anh
+        BtnAddUpload.onclick = function() {
+
+            myModalAddNewsUpload.style.display = "block";
+            //upload anh file
+            const ipnFileElement = document.querySelector('#image')
+            const resultElement = document.querySelector('.imagePreview')
+            const validImageTypes = ['image/gif', 'image/jpeg', 'image/png']
+            ipnFileElement.addEventListener('change', function(e) {
+                const files = e.target.files
+                const file = files[0]
+                const fileType = file['type']
+
+                const fileReader = new FileReader()
+                fileReader.readAsDataURL(file)
+
+                fileReader.onload = function() {
+                    const url = fileReader.result
+                    // resultElement.setAttribute("src", `${url}`);
+                    resultElement.setAttribute("alt", `${file.name}`);
+                }
+
+            })
+        }
+
+        // Khi bấm nút thoát thì đóng Modal
+        BtnAddUploadExit.onclick = function() {
+            myModalAddNewsUpload.style.display = "none";
+        }
+
+
+
+
+
+
+
         // Them moi
         BtnAdd.onclick = function() {
 
@@ -307,8 +410,10 @@ $chapter_id_get = $_GET['id'];
             }
         }
 
+
         //khi bam nut them moi
         BtnAddNew.onclick = function() {
+
 
             //gửi đi "id" của dữ liệu mà mình cần lấy
 
@@ -351,29 +456,29 @@ $chapter_id_get = $_GET['id'];
             var data = {}
             data["id"] = $("#id").val();
             const chapter_id_get = "<?php echo $chapter_id_get ?>";
-            var result =  confirm("Bạn có chắc là muốn xóa chứ?");
-			if(result ==true){
+            var result = confirm("Bạn có chắc là muốn xóa chứ?");
+            if (result == true) {
                 $.post(
-                "http://localhost/manga-comic-be/views/Dashboard/pages/chapter_images/chapter_images_api.php?method=5", {
-                    id: id
-                },
-                function(data, status) {
-                    alert("Xóa thành công!");
-                    $.ajax({
-                        url: "http://localhost/manga-comic-be/views/Dashboard/pages/chapter_images/chapter_images_api.php?method=1",
-                        method: "GET",
-                        dataType: "json",
-                        success(response) {
-                            console.log(response);
-                            $('#stage').load('./pages/chapter_images/chapter_images_curd.php?id=' + chapter_id_get);
+                    "http://localhost/manga-comic-be/views/Dashboard/pages/chapter_images/chapter_images_api.php?method=5", {
+                        id: id
+                    },
+                    function(data, status) {
+                        alert("Xóa thành công!");
+                        $.ajax({
+                            url: "http://localhost/manga-comic-be/views/Dashboard/pages/chapter_images/chapter_images_api.php?method=1",
+                            method: "GET",
+                            dataType: "json",
+                            success(response) {
+                                console.log(response);
+                                $('#stage').load('./pages/chapter_images/chapter_images_curd.php?id=' + chapter_id_get);
 
-                        }
+                            }
 
+                        });
                     });
-                });
-			}
+            }
 
-            
+
         }
 
 

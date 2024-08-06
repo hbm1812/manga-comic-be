@@ -486,6 +486,7 @@
                 success(response) {
                     modal.style.display = "none";
                     alert("Thêm mới thành công!");
+                  
                     $.ajax({
                         url: "http://localhost/manga-comic-be/views/Dashboard/pages/stories/stories_api.php?method=1",
                         method: "GET",

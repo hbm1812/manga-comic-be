@@ -76,7 +76,15 @@
     
     if($method == $METHOD_DELETE){
         $where='id='.$_POST['id'];
+    //     $story_id =$_POST['id'];
+    //     $select_id_chapter = $db->select_id_chapter('chapter',$story_id);
+    //     $delete_chapter_images = $db->delete_chapter_images('chapter_images',$select_id_chapter);
+    //     $delete_chapter = $db->delete_chapter('chapter',$story_id);
+    //    $delete_story_genres = $db->delete_story_genres('story_genres',$story_id);
+    //    $delete_story_views= $db->delete_story_views('view',$story_id);
+    //    $delete_favorite= $db->delete_favorite('favorite',$story_id);
         $rs = $db->delete('stories',$where);
+        
         if($rs){
             $result['delete'] = true;
         }else{
